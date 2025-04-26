@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2bvu0xtdr23g"]
+
+[ext_resource type="Texture2D" uid="uid://cg3x1ga7tvyp" path="res://assets/placeholders/Coffee Mug 001 16x161.png" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://dph15r4ghmcah" path="res://scenes/ui.gd" id="1_yev5y"]
+[ext_resource type="Texture2D" uid="uid://dii73j6f6427w" path="res://assets/placeholders/tissue.png" id="2_x4jx1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nt7q6"]
+content_margin_left = 20.0
+content_margin_top = 3.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0.635294, 0.584314, 0.266667, 1)
+border_width_left = 3
+border_width_top = 1
+border_width_right = 2
+border_color = Color(0.8, 0.8, 0.8, 0.717647)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
+content_margin_left = 85.0
+content_margin_top = 40.0
+content_margin_right = 50.0
+content_margin_bottom = 20.0
+bg_color = Color(0.0627451, 0.0705882, 0.164706, 0.690196)
+border_width_top = 2
+border_color = Color(0.8, 0.8, 0.282353, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_yev5y")
+
+[node name="name_container" type="PanelContainer" parent="."]
+z_index = 21
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = 109.0
+offset_right = -359.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nt7q6")
+
+[node name="name" type="RichTextLabel" parent="name_container"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Hello world"
+
+[node name="text_container" type="PanelContainer" parent="."]
+z_index = 20
+custom_minimum_size = Vector2(0, 200)
+layout_direction = 2
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xlq6p")
+
+[node name="text" type="RichTextLabel" parent="text_container"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Hello world"
+
+[node name="coffee" type="Sprite2D" parent="."]
+position = Vector2(1103, 60)
+scale = Vector2(3.4375, 3.125)
+texture = ExtResource("1_nt7q6")
+
+[node name="tissue" type="Sprite2D" parent="."]
+position = Vector2(1101, 131)
+scale = Vector2(0.176, 0.196154)
+texture = ExtResource("2_x4jx1")
+
+[node name="animeboy" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(1061, 187, 1129, 187, 1129, 243, 1059, 241)
+
+[node name="silute" type="Polygon2D" parent="animeboy"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(1084, 216, 1077, 210, 1077, 201, 1088, 197, 1099, 194, 1105, 197, 1106, 205, 1104, 208, 1099, 211, 1095, 212, 1094, 216, 1095, 219, 1099, 220, 1103, 220, 1106, 222, 1106, 227, 1105, 231, 1088, 235, 1079, 236, 1073, 234, 1074, 224, 1081, 221, 1085, 219)

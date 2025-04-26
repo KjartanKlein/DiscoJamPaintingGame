@@ -398,19 +398,18 @@ hint_text = "E to boys"
 shape = SubResource("RectangleShape2D_wjob3")
 
 [node name="UI" parent="." instance=ExtResource("16_ihbck")]
+visible = false
 
-[node name="Tissues" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("17_ikqpi")
 
-[node name="sprite" type="Sprite2D" parent="Tissues"]
+[node name="Tissues" type="Sprite2D" parent="Node2D"]
 position = Vector2(778, 8.00001)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("17_vnsdt")
 
-[node name="interaction" parent="Tissues" instance=ExtResource("5_ipu61")]
+[node name="interaction" parent="Node2D" instance=ExtResource("5_ipu61")]
 position = Vector2(776, 9)
 scale = Vector2(3.58061, 3.28961)
 hint_text = "E to pick up"
 shape = SubResource("RectangleShape2D_ikqpi")
-
-[connection signal="tissueGot" from="Tissues" to="UI" method="_on_tissues_tissue_got"]

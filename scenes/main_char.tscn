@@ -207,8 +207,9 @@ JUMP_VELOCITY = -300.0
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0cwr1")
-animation = &"idle"
+animation = &"running"
 autoplay = "idle"
+frame_progress = 0.115838
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_844ho")
