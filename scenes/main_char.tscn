@@ -199,6 +199,8 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_844ho"]
 
 [node name="main_char" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 3
 script = ExtResource("1_a0gy4")
 SPEED = 150.0
 JUMP_VELOCITY = -300.0
