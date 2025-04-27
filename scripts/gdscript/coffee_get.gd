@@ -5,7 +5,7 @@ extends Node2D
 @onready var progress : ProgressBar = $ProgressBar
 # Called when the node enters the scene tree for the first time.
 
-var dispensing = true;
+var dispensing = false;
 signal CoffeIsDone
 
 func _ready() -> void:
@@ -36,4 +36,5 @@ func _process(delta: float) -> void:
 			dispensing = false		
 			progress.visible=false
 			print("fresh cuppa over")
+			CoffeIsDone.emit()
 			sprite.play("idle")

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2bvu0xtdr23g"]
+[gd_scene load_steps=8 format=3 uid="uid://c2bvu0xtdr23g"]
 
+[ext_resource type="Texture2D" uid="uid://cg3x1ga7tvyp" path="res://assets/placeholders/Coffee Mug 001 16x161.png" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://dph15r4ghmcah" path="res://scripts/gdscript/ui.gd" id="1_yev5y"]
-[ext_resource type="Texture2D" uid="uid://cuadabt74acf0" path="res://assets/sprite/cawfee.png" id="2_8dubc"]
 [ext_resource type="Texture2D" uid="uid://dii73j6f6427w" path="res://assets/placeholders/tissue.png" id="2_x4jx1"]
-[ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="3_p7vwb"]
 [ext_resource type="Script" uid="uid://6fu8l80dtoup" path="res://scripts/CSharp/ink_runner.cs" id="4_gdt2y"]
-[ext_resource type="Resource" uid="uid://dlnpry4jaokj0" path="res://inks/Painting_boy.ink" id="5_wm3ai"]
+[ext_resource type="Resource" uid="uid://byp3vq4t0d1k8" path="res://inks/AceTest.ink" id="5_wm3ai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
 content_margin_left = 85.0
@@ -38,22 +37,16 @@ corner_detail = 20
 script = ExtResource("1_yev5y")
 
 [node name="coffee" type="Sprite2D" parent="."]
-position = Vector2(1101, 50)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("2_8dubc")
+position = Vector2(1103, 60)
+scale = Vector2(3.4375, 3.125)
+texture = ExtResource("1_nt7q6")
 
 [node name="tissue" type="Sprite2D" parent="."]
-position = Vector2(1102, 139)
-scale = Vector2(0.030976, 0.0384764)
-texture = ExtResource("3_p7vwb")
-
-[node name="crybox" type="Sprite2D" parent="."]
-position = Vector2(1103, 217)
+position = Vector2(1101, 131)
 scale = Vector2(0.176, 0.196154)
 texture = ExtResource("2_x4jx1")
 
 [node name="animeboy" type="Polygon2D" parent="."]
-position = Vector2(12, 81)
 polygon = PackedVector2Array(1061, 187, 1129, 187, 1129, 243, 1059, 241)
 
 [node name="silute" type="Polygon2D" parent="animeboy"]

@@ -16,6 +16,11 @@ func unregister_area(area: InteractionArea):
 	if index != -1:
 		active_areas.remove_at(index)
 
+func untregister_closest():
+	if active_areas.size() > 0 && can_interact:
+		active_areas.sort_custom(_sort_by_player_distance)
+		unregister_area(active_areas[0])
+
 func _process(delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_player_distance)

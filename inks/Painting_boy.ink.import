@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://dlnpry4jaokj0"
+path="res://.godot/imported/Painting_boy.ink-2452c0f49f607779c4761d752ea1861f.res"
+
+[deps]
+
+source_file="res://inks/Painting_boy.ink"
+dest_files=["res://.godot/imported/Painting_boy.ink-2452c0f49f607779c4761d752ea1861f.res"]
+
+[params]
+
+is_main_file=true
+compress=true

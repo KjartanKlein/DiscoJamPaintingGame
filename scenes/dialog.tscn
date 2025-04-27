@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj1daep1y40dd"]
+
+[ext_resource type="Script" uid="uid://6fu8l80dtoup" path="res://Scripts/CSharp/ink_runner.cs" id="1_7voku"]
+[ext_resource type="Resource" uid="uid://byp3vq4t0d1k8" path="res://inks/AceTest.ink" id="2_edf0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feqas"]
+content_margin_left = 40.0
+content_margin_top = 10.0
+content_margin_right = 40.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 0.560784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7voku"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.239216, 0.239216, 0.239216, 0.564706)
+
+[node name="Dialog" type="CanvasLayer"]
+script = ExtResource("1_7voku")
+story = ExtResource("2_edf0l")
+
+[node name="text_box" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 250)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_feqas")
+
+[node name="dialog" type="RichTextLabel" parent="text_box"]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "Hello world
+[wave]waves[/wave]"
+visible_characters = 17
+
+[node name="name_box" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+offset_right = 150.0
+offset_bottom = -250.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7voku")
+
+[node name="name" type="RichTextLabel" parent="name_box"]
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 12
+bbcode_enabled = true
+text = "name"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_container" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = 28.0
+offset_right = 478.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
