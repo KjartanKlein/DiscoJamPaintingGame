@@ -1,14 +1,16 @@
-[gd_scene load_steps=34 format=3 uid="uid://cq8uyx8mlb50b"]
+[gd_scene load_steps=38 format=3 uid="uid://cq8uyx8mlb50b"]
 
 [ext_resource type="PackedScene" uid="uid://1aaa5eih6m57" path="res://scenes/main_char.tscn" id="1_s3esy"]
 [ext_resource type="Script" uid="uid://86fuj3hh8l3s" path="res://scripts/gdscript/main_game.gd" id="1_sp04v"]
 [ext_resource type="Texture2D" uid="uid://bp2gai5eo5ugt" path="res://assets/placeholders/Background/Gray.png" id="2_72e8q"]
+[ext_resource type="Texture2D" uid="uid://dklsx4xqlraoj" path="res://scenes/spotlight.tres" id="4_on6n6"]
 [ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="5_ipu61"]
 [ext_resource type="Texture2D" uid="uid://oeu1y5ty8ms4" path="res://assets/placeholders/coffee/Vending Machine 3.1 (No Glass).png" id="6_o6v7o"]
 [ext_resource type="Script" uid="uid://gmuhedcy630b" path="res://scripts/gdscript/coffee_get.gd" id="6_wjob3"]
 [ext_resource type="Texture2D" uid="uid://bcdr5jo0wmy6o" path="res://assets/placeholders/coffee/Vending Machine 3.2 (No Glass).png" id="6_ygxny"]
 [ext_resource type="Texture2D" uid="uid://dqjubtmu282hi" path="res://assets/placeholders/coffee/Vending Machine 3.1.png" id="7_wjob3"]
 [ext_resource type="Texture2D" uid="uid://csy1j8ednu51j" path="res://assets/placeholders/coffee/Vending Machine 3.2.png" id="9_8xp80"]
+[ext_resource type="Material" uid="uid://bt7nvnvhrquaq" path="res://scenes/disapear_on_shaded.tres" id="9_x3ega"]
 [ext_resource type="Texture2D" uid="uid://cxx86hs4admrd" path="res://assets/placeholders/coffee/Vending Machine 3.3 (No Glass).png" id="10_sp04v"]
 [ext_resource type="Texture2D" uid="uid://di1l7xqaedtgg" path="res://assets/placeholders/coffee/Vending Machine 3.3.png" id="11_ihbck"]
 [ext_resource type="AudioStream" uid="uid://cbktokbnffifc" path="res://assets/music/Crying Boys Theme (DRAFT 1).mp3" id="14_8xp80"]
@@ -25,6 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://brri6a8c84rex" path="res://assets/sprite/other_boy.png" id="23_6de02"]
 [ext_resource type="Script" uid="uid://dysq5taq3rq44" path="res://scripts/gdscript/boyfriend.gd" id="23_cybgu"]
 [ext_resource type="Script" uid="uid://dcycl7vt0tqss" path="res://scenes/roof_portal.gd" id="25_wdxbp"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x3ega"]
+polygon = PackedVector2Array(-1740.3, 2560, -1401.46, 1014, 775.917, 1018, 1104.73, 2574, -1726.26, 2570, -1740.3, 2562, -1728.27, 2580, 1359.36, 3106, 1050.6, 664, -1974.88, 584, -2243.54, 2616, -1742.3, 2564, -1738.29, 2562)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_on6n6"]
+polygon = PackedVector2Array(-390.966, 2018, -709.753, 2006, -615.52, 1380, 50.1239, 1388, 138.342, 1998, -156.386, 2014, -162.401, 1954, 84.208, 1956, 12.0298, 1446, -593.466, 1418, -671.659, 1952, -392.971, 1960)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
 
@@ -107,6 +115,10 @@ volume_db = -29.633
 autoplay = true
 parameters/looping = true
 
+[node name="PointLight2D" type="PointLight2D" parent="player"]
+shadow_enabled = true
+texture = ExtResource("4_on6n6")
+
 [node name="backround" type="TextureRect" parent="."]
 visible = false
 z_index = -24
@@ -150,6 +162,9 @@ polygon = PackedVector2Array(861, 958, -1438, 926, -1390, 1034, 775, 1027)
 position = Vector2(20, 17)
 polygon = PackedVector2Array(-1471, 914, -1912, 2661, -1742, 2547, -1419, 1017)
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="map/outer_walls"]
+occluder = SubResource("OccluderPolygon2D_x3ega")
+
 [node name="Polygon2D" type="Polygon2D" parent="map"]
 z_index = -10
 position = Vector2(1162, 312.585)
@@ -170,6 +185,9 @@ position = Vector2(1162, 312.585)
 scale = Vector2(0.127997, 0.180593)
 polygon = PackedVector2Array(-10344, 9393.57, -10344, 9111.17, -8453.29, 9100.09, -9047.06, 6137.63, -13680, 6115.48, -14344, 9133.32, -12094, 9133.32, -12140.9, 9415.72, -14680, 9382.5, -13906.5, 5938.29, -8742.36, 5949.37, -7984.53, 9349.27)
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="map/inner_walls"]
+occluder = SubResource("OccluderPolygon2D_on6n6")
+
 [node name="Sprites" type="Node2D" parent="map"]
 position = Vector2(-1533, 2423)
 
@@ -178,6 +196,9 @@ position = Vector2(621, -541)
 script = ExtResource("17_ikqpi")
 
 [node name="sprite" type="Sprite2D" parent="map/Sprites/Tissues"]
+light_mask = 3
+visibility_layer = 2
+material = ExtResource("9_x3ega")
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("17_vnsdt")
 
@@ -193,6 +214,9 @@ scale = Vector2(2, 2)
 script = ExtResource("6_wjob3")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="map/Sprites/coffe machine"]
+light_mask = 3
+visibility_layer = 2
+material = ExtResource("9_x3ega")
 sprite_frames = SubResource("SpriteFrames_ikqpi")
 animation = &"idle"
 autoplay = "idle"
@@ -293,6 +317,9 @@ shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map/roof"]
 polygon = PackedVector2Array(4645.47, 2818, 4583.32, 2832, 4789.83, 1798, 6255.45, 1806, 6391.79, 2930, 4507.13, 3022, 4649.48, 2818, 6259.46, 2812, 6121.12, 1940, 4831.93, 1934)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.137255, 0.168627, 0.341176, 1)
 
 [connection signal="tissueGot" from="map/Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
 [connection signal="tissueGot" from="map/Sprites/Tissues" to="map/Sprites/main_painting" method="_on_tissues_tissue_got"]
