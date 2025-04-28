@@ -92,6 +92,7 @@ script = ExtResource("1_sp04v")
 
 [node name="player" parent="." instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
+SPEED = 1000.0
 JUMP_VELOCITY = -400.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]

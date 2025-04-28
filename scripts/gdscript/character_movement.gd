@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var my_sprite = $sprite
 @onready var textbox = $textbox
 @export var min_movement = 100
-@export var max_movement = 200
+@export var max_movement = 20000
 
 func _ready() -> void:
 	textbox.visible = false
@@ -57,29 +57,32 @@ func _process(delta: float) -> void:
 	var direction_x = 0.0
 	var direction_y = 0.0
 	if Input.is_action_pressed("left"):
-		velocity.x -= movement
-		direction_x = -1.0
+		direction_x += -1.0
 		got_movement = true
 	if Input.is_action_pressed("right"):
-		velocity.x += movement
-		direction_x = 1.0
+		direction_x += 1.0
 		got_movement = true
 	if Input.is_action_pressed("up"):
-		velocity.y -= movement
-		direction_y = -1.0
+		direction_y += -1.0
 		got_movement = true
 	if Input.is_action_pressed("down"):
-		velocity.y += movement
-		direction_y = 1.0
+		direction_y += 1.0
 		got_movement = true
+	if got_movement == false:
+		direction_x = 0
+		direction_y = 0
 	
 	if direction_x ==0.0:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = 0
 	if direction_y ==0.0:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-	if abs(velocity.x) > max_movement:
-		velocity.x = max_movement*direction_x
-	if abs(velocity.y) > max_movement:
-		velocity.y = max_movement*direction_y
+		velocity.y = 0
+	
+	velocity.x=direction_x*movement
+	velocity.y=direction_y*movement
+	
+	#if abs(velocity.x) > max_movement:
+	#	velocity.x = max_movement*direction_x
+	#if abs(velocity.y) > max_movement:
+	#	velocity.y = max_movement*direction_y
 		
 	move_and_slide()

@@ -237,3 +237,4 @@ bbcode_enabled = true
 text = "[wave]Boys...[/wave]"
 scroll_active = false
 autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
