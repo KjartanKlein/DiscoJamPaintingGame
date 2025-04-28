@@ -197,6 +197,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_844ho"]
+radius = 5.0
+height = 12.7907
 
 [node name="main_char" type="CharacterBody2D"]
 z_index = 1
@@ -206,12 +208,16 @@ SPEED = 150.0
 JUMP_VELOCITY = -300.0
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 23)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_0cwr1")
 animation = &"running"
 autoplay = "idle"
 frame_progress = 0.115838
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(2, 59)
+scale = Vector2(5.2, 1.72)
 shape = SubResource("CapsuleShape2D_844ho")
 
 [node name="textbox" type="Polygon2D" parent="."]

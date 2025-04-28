@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cq8uyx8mlb50b"]
+[gd_scene load_steps=36 format=3 uid="uid://cq8uyx8mlb50b"]
 
 [ext_resource type="PackedScene" uid="uid://1aaa5eih6m57" path="res://scenes/main_char.tscn" id="1_s3esy"]
 [ext_resource type="Script" uid="uid://86fuj3hh8l3s" path="res://scripts/gdscript/main_game.gd" id="1_sp04v"]
@@ -18,7 +18,6 @@
 [ext_resource type="Script" uid="uid://dkc7vwb3yl6y8" path="res://scripts/gdscript/tissues.gd" id="17_ikqpi"]
 [ext_resource type="Texture2D" uid="uid://dii73j6f6427w" path="res://assets/placeholders/tissue.png" id="17_vnsdt"]
 [ext_resource type="Script" uid="uid://cliq5cptj7o5w" path="res://scenes/main_painting.gd" id="18_ibnub"]
-[ext_resource type="Texture2D" uid="uid://bkc2ehc1yga2d" path="res://assets/nasterpiece.png" id="19_5luka"]
 [ext_resource type="Script" uid="uid://cjljq37gomrk7" path="res://scenes/cawfee_lady.gd" id="19_5wboo"]
 [ext_resource type="Texture2D" uid="uid://brqawoqydtwds" path="res://assets/sprite/boy_painting_1.png" id="19_ibnub"]
 [ext_resource type="Texture2D" uid="uid://brq57rhf3w40q" path="res://assets/sprite/lady_pick_me_up.png" id="20_5wboo"]
@@ -27,12 +26,9 @@
 [ext_resource type="Texture2D" uid="uid://brri6a8c84rex" path="res://assets/sprite/other_boy.png" id="23_6de02"]
 [ext_resource type="Script" uid="uid://dysq5taq3rq44" path="res://scripts/gdscript/boyfriend.gd" id="23_cybgu"]
 [ext_resource type="Script" uid="uid://dcycl7vt0tqss" path="res://scenes/roof_portal.gd" id="25_wdxbp"]
+[ext_resource type="PackedScene" uid="uid://bbbb6wpfs2gfa" path="res://scenes/map.tscn" id="28_dcudo"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x3ega"]
-polygon = PackedVector2Array(-1740.3, 2560, -1401.46, 1014, 775.917, 1018, 1104.73, 2574, -1726.26, 2570, -1740.3, 2562, -1728.27, 2580, 1359.36, 3106, 1050.6, 664, -1974.88, 584, -2243.54, 2616, -1742.3, 2564, -1738.29, 2562)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_on6n6"]
-polygon = PackedVector2Array(-390.966, 2018, -709.753, 2006, -615.52, 1380, 50.1239, 1388, 138.342, 1998, -156.386, 2014, -162.401, 1954, 84.208, 1956, 12.0298, 1446, -593.466, 1418, -671.659, 1952, -392.971, 1960)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
 
@@ -92,14 +88,13 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_sp04v")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibnub"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
-
 [node name="Main_game" type="Node2D"]
 z_index = 2
 script = ExtResource("1_sp04v")
 
 [node name="player" parent="." instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
+position = Vector2(-1238, 97)
 SPEED = 10000.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -116,6 +111,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
+position = Vector2(0, 60)
 shadow_enabled = true
 texture = ExtResource("4_on6n6")
 
@@ -134,164 +130,9 @@ unique_name_in_owner = true
 process_mode = 3
 
 [node name="map" type="Node2D" parent="."]
+visible = false
 position = Vector2(773, -1219)
 scale = Vector2(0.498765, 0.5)
-
-[node name="refrence" type="TextureRect" parent="map"]
-z_index = -24
-offset_left = -24153.0
-offset_top = -8218.0
-offset_right = -6836.0
-offset_bottom = 870.0
-texture = ExtResource("19_5luka")
-
-[node name="outer_walls" type="StaticBody2D" parent="map"]
-
-[node name="bottom wall" type="CollisionPolygon2D" parent="map/outer_walls"]
-position = Vector2(1162, 312.585)
-scale = Vector2(0.127997, 0.180593)
-polygon = PackedVector2Array(-22547.3, 12505.5, -507.81, 12527.7, 85.9531, 13253.1, -23516.1, 13136.8)
-
-[node name="left wall" type="CollisionPolygon2D" parent="map/outer_walls"]
-polygon = PackedVector2Array(1101, 2561, 776, 1028, 907, 1007, 1232, 2699, 1173, 2689)
-
-[node name="top wall" type="CollisionPolygon2D" parent="map/outer_walls"]
-polygon = PackedVector2Array(861, 958, -1438, 926, -1390, 1034, 775, 1027)
-
-[node name="right_wall" type="CollisionPolygon2D" parent="map/outer_walls"]
-position = Vector2(20, 17)
-polygon = PackedVector2Array(-1471, 914, -1912, 2661, -1742, 2547, -1419, 1017)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="map/outer_walls"]
-occluder = SubResource("OccluderPolygon2D_x3ega")
-
-[node name="Polygon2D" type="Polygon2D" parent="map"]
-z_index = -10
-position = Vector2(1162, 312.585)
-scale = Vector2(0.127997, 0.180593)
-color = Color(1, 0.52549, 1, 1)
-polygon = PackedVector2Array(-20000, 4000, -22500, 12500, -500, 12500, -3000, 4000)
-
-[node name="Polygon2D" type="Polygon2D" parent="map/Polygon2D"]
-position = Vector2(-7828.28, 4365.7)
-scale = Vector2(0.304521, 0.4)
-color = Color(0.586985, 0.821578, 0.305659, 1)
-polygon = PackedVector2Array(-20000, 4000, -22500, 12500, -500, 12500, -3000, 4000, -12621.8, 4000)
-
-[node name="inner_walls" type="StaticBody2D" parent="map"]
-
-[node name="guard room" type="CollisionPolygon2D" parent="map/inner_walls"]
-position = Vector2(1162, 312.585)
-scale = Vector2(0.127997, 0.180593)
-polygon = PackedVector2Array(-10344, 9393.57, -10344, 9111.17, -8453.29, 9100.09, -9047.06, 6137.63, -13680, 6115.48, -14344, 9133.32, -12094, 9133.32, -12140.9, 9415.72, -14680, 9382.5, -13906.5, 5938.29, -8742.36, 5949.37, -7984.53, 9349.27)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="map/inner_walls"]
-occluder = SubResource("OccluderPolygon2D_on6n6")
-
-[node name="Sprites" type="Node2D" parent="map"]
-position = Vector2(-1533, 2423)
-
-[node name="Tissues" type="Node2D" parent="map/Sprites"]
-position = Vector2(621, -541)
-script = ExtResource("17_ikqpi")
-
-[node name="sprite" type="Sprite2D" parent="map/Sprites/Tissues"]
-light_mask = 3
-visibility_layer = 2
-material = ExtResource("9_x3ega")
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("17_vnsdt")
-
-[node name="interaction" parent="map/Sprites/Tissues" instance=ExtResource("5_ipu61")]
-position = Vector2(-2, -2)
-scale = Vector2(3.58061, 3.28961)
-hint_text = "E to pick up"
-shape = SubResource("RectangleShape2D_ikqpi")
-
-[node name="coffe machine" type="Node2D" parent="map/Sprites"]
-position = Vector2(1492, -955)
-scale = Vector2(2, 2)
-script = ExtResource("6_wjob3")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="map/Sprites/coffe machine"]
-light_mask = 3
-visibility_layer = 2
-material = ExtResource("9_x3ega")
-sprite_frames = SubResource("SpriteFrames_ikqpi")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="interaction" parent="map/Sprites/coffe machine" instance=ExtResource("5_ipu61")]
-position = Vector2(-37, 17)
-scale = Vector2(-8.75431, -6.2558)
-hint_text = "E to coffee"
-shape = SubResource("RectangleShape2D_5luka")
-
-[node name="ProgressBar" type="ProgressBar" parent="map/Sprites/coffe machine"]
-offset_left = -23.0
-offset_top = -35.0
-offset_right = 23.0
-offset_bottom = -22.0
-theme = SubResource("Theme_ihbck")
-max_value = 5.0
-show_percentage = false
-
-[node name="main_painting" type="Node2D" parent="map/Sprites"]
-position = Vector2(546, -1522)
-script = ExtResource("18_ibnub")
-
-[node name="Sprite2D" type="Sprite2D" parent="map/Sprites/main_painting"]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("19_ibnub")
-
-[node name="interaction" parent="map/Sprites/main_painting" instance=ExtResource("5_ipu61")]
-position = Vector2(-9, 230)
-scale = Vector2(-17.3891, -9.32756)
-hint_text = "Press E to examine the boy"
-shape = SubResource("RectangleShape2D_ibnub")
-
-[node name="cawfee_lady" type="Node2D" parent="map/Sprites"]
-position = Vector2(1987, -1507)
-script = ExtResource("19_5wboo")
-
-[node name="Sprite2D" type="Sprite2D" parent="map/Sprites/cawfee_lady"]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("20_5wboo")
-
-[node name="interaction" parent="map/Sprites/cawfee_lady" instance=ExtResource("5_ipu61")]
-position = Vector2(-9, 230)
-scale = Vector2(-32.6101, -10.0236)
-hint_text = "Press E to talk to the lady"
-shape = SubResource("RectangleShape2D_5wboo")
-
-[node name="thedoor" type="Node2D" parent="map/Sprites"]
-position = Vector2(2832.21, 1)
-script = ExtResource("21_6de02")
-
-[node name="door" type="Sprite2D" parent="map/Sprites/thedoor"]
-scale = Vector2(0.810143, 0.752472)
-texture = ExtResource("21_5wboo")
-
-[node name="interaction" parent="map/Sprites/thedoor" instance=ExtResource("5_ipu61")]
-position = Vector2(-266.45, -41)
-scale = Vector2(8.2911, 20)
-hint_text = "E to open door?"
-shape = SubResource("RectangleShape2D_5wboo")
-
-[node name="boyfriend" type="Node2D" parent="map/Sprites"]
-position = Vector2(7469.66, -59)
-script = ExtResource("23_cybgu")
-
-[node name="sprite" type="Sprite2D" parent="map/Sprites/boyfriend"]
-z_index = 3
-position = Vector2(2.00495, -24)
-texture = ExtResource("23_6de02")
-
-[node name="interaction" parent="map/Sprites/boyfriend" instance=ExtResource("5_ipu61")]
-position = Vector2(2.00489, -126)
-scale = Vector2(31.5608, 26.5305)
-hint_text = "E to Talk to him"
-shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="roof" type="StaticBody2D" parent="map"]
 position = Vector2(66.1634, -12)
@@ -319,14 +160,127 @@ shape = SubResource("RectangleShape2D_5wboo")
 polygon = PackedVector2Array(4645.47, 2818, 4583.32, 2832, 4789.83, 1798, 6255.45, 1806, 6391.79, 2930, 4507.13, 3022, 4649.48, 2818, 6259.46, 2812, 6121.12, 1940, 4831.93, 1934)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.137255, 0.168627, 0.341176, 1)
+color = Color(0.193007, 0.165093, 0.32974, 1)
 
-[connection signal="tissueGot" from="map/Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
-[connection signal="tissueGot" from="map/Sprites/Tissues" to="map/Sprites/main_painting" method="_on_tissues_tissue_got"]
-[connection signal="CoffeIsDone" from="map/Sprites/coffe machine" to="UI" method="_on_coffe_machine_coffe_is_done"]
-[connection signal="CoffeIsDone" from="map/Sprites/coffe machine" to="map/Sprites/cawfee_lady" method="_on_coffe_machine_coffe_is_done"]
-[connection signal="dialogStart" from="map/Sprites/main_painting" to="UI" method="_on_dialog_start"]
-[connection signal="dialogStart" from="map/Sprites/cawfee_lady" to="UI" method="_on_dialog_start"]
-[connection signal="hasKeyCode" from="map/Sprites/cawfee_lady" to="map/Sprites/thedoor" method="_on_cawfee_lady_has_key_code"]
-[connection signal="allowTears" from="map/Sprites/boyfriend" to="map/Sprites/main_painting" method="_on_boyfriend_allow_tears"]
-[connection signal="dialogStart" from="map/Sprites/boyfriend" to="UI" method="_on_dialog_start"]
+[node name="map2" parent="." instance=ExtResource("28_dcudo")]
+
+[node name="Sprites" type="Node2D" parent="."]
+position = Vector2(8.39325, -7.5)
+scale = Vector2(0.498765, 0.5)
+
+[node name="Tissues" type="Node2D" parent="Sprites"]
+position = Vector2(-1340.1, 341)
+script = ExtResource("17_ikqpi")
+
+[node name="sprite" type="Sprite2D" parent="Sprites/Tissues"]
+light_mask = 3
+visibility_layer = 2
+material = ExtResource("9_x3ega")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("17_vnsdt")
+
+[node name="interaction" parent="Sprites/Tissues" instance=ExtResource("5_ipu61")]
+position = Vector2(-2, -2)
+scale = Vector2(3.58061, 3.28961)
+hint_text = "E to pick up"
+shape = SubResource("RectangleShape2D_ikqpi")
+
+[node name="coffe machine" type="Node2D" parent="Sprites"]
+position = Vector2(674.881, 129)
+scale = Vector2(2, 2)
+script = ExtResource("6_wjob3")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Sprites/coffe machine"]
+light_mask = 3
+visibility_layer = 2
+material = ExtResource("9_x3ega")
+sprite_frames = SubResource("SpriteFrames_ikqpi")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="interaction" parent="Sprites/coffe machine" instance=ExtResource("5_ipu61")]
+position = Vector2(-37, 17)
+scale = Vector2(-8.75431, -6.2558)
+hint_text = "E to coffee"
+shape = SubResource("RectangleShape2D_5luka")
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprites/coffe machine"]
+offset_left = -23.0
+offset_top = -35.0
+offset_right = 23.0
+offset_bottom = -22.0
+theme = SubResource("Theme_ihbck")
+max_value = 5.0
+show_percentage = false
+
+[node name="main_painting" type="Node2D" parent="Sprites"]
+position = Vector2(-1713.02, -555)
+script = ExtResource("18_ibnub")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites/main_painting"]
+texture = ExtResource("19_ibnub")
+
+[node name="interaction" parent="Sprites/main_painting" instance=ExtResource("5_ipu61")]
+position = Vector2(-8.0198, 398)
+scale = Vector2(-45, -20)
+hint_text = "Press E to examine the boy"
+shape = SubResource("RectangleShape2D_ibnub")
+
+[node name="cawfee_lady" type="Node2D" parent="Sprites"]
+position = Vector2(1242.28, -411)
+script = ExtResource("19_5wboo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites/cawfee_lady"]
+position = Vector2(0, -124)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("20_5wboo")
+
+[node name="interaction" parent="Sprites/cawfee_lady" instance=ExtResource("5_ipu61")]
+position = Vector2(-8.0198, 260)
+scale = Vector2(-45, -15)
+hint_text = "Press E to talk to the lady"
+shape = SubResource("RectangleShape2D_5wboo")
+
+[node name="thedoor" type="Node2D" parent="Sprites"]
+position = Vector2(2695.87, 31)
+scale = Vector2(1, 1.8)
+script = ExtResource("21_6de02")
+
+[node name="door" type="Sprite2D" parent="Sprites/thedoor"]
+scale = Vector2(0.810143, 0.752472)
+texture = ExtResource("21_5wboo")
+
+[node name="interaction" parent="Sprites/thedoor" instance=ExtResource("5_ipu61")]
+position = Vector2(-266.45, -41)
+scale = Vector2(8.2911, 20)
+hint_text = "E to open door?"
+shape = SubResource("RectangleShape2D_5wboo")
+
+[node name="boyfriend" type="Node2D" parent="Sprites"]
+position = Vector2(7469.66, -59)
+script = ExtResource("23_cybgu")
+
+[node name="sprite" type="Sprite2D" parent="Sprites/boyfriend"]
+z_index = 3
+position = Vector2(2.00495, -24)
+texture = ExtResource("23_6de02")
+
+[node name="interaction" parent="Sprites/boyfriend" instance=ExtResource("5_ipu61")]
+position = Vector2(2.00489, -126)
+scale = Vector2(31.5608, 26.5305)
+hint_text = "E to Talk to him"
+shape = SubResource("RectangleShape2D_5wboo")
+
+[node name="Editor light" type="DirectionalLight2D" parent="."]
+enabled = false
+editor_only = true
+
+[connection signal="tissueGot" from="Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
+[connection signal="tissueGot" from="Sprites/Tissues" to="Sprites/main_painting" method="_on_tissues_tissue_got"]
+[connection signal="CoffeIsDone" from="Sprites/coffe machine" to="UI" method="_on_coffe_machine_coffe_is_done"]
+[connection signal="CoffeIsDone" from="Sprites/coffe machine" to="Sprites/cawfee_lady" method="_on_coffe_machine_coffe_is_done"]
+[connection signal="dialogStart" from="Sprites/main_painting" to="UI" method="_on_dialog_start"]
+[connection signal="dialogStart" from="Sprites/cawfee_lady" to="UI" method="_on_dialog_start"]
+[connection signal="hasKeyCode" from="Sprites/cawfee_lady" to="Sprites/thedoor" method="_on_cawfee_lady_has_key_code"]
+[connection signal="allowTears" from="Sprites/boyfriend" to="Sprites/main_painting" method="_on_boyfriend_allow_tears"]
+[connection signal="dialogStart" from="Sprites/boyfriend" to="UI" method="_on_dialog_start"]

@@ -5,9 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dii73j6f6427w" path="res://assets/placeholders/tissue.png" id="2_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="3_p7vwb"]
 [ext_resource type="Script" uid="uid://6fu8l80dtoup" path="res://scripts/CSharp/ink_runner.cs" id="4_gdt2y"]
-
-[sub_resource type="Resource" id="Resource_wm3ai"]
-metadata/__load_path__ = "res://inks/Painting_boy.ink"
+[ext_resource type="Resource" uid="uid://dlnpry4jaokj0" path="res://inks/Painting_boy.ink" id="5_wm3ai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
 content_margin_left = 85.0
@@ -64,7 +62,7 @@ polygon = PackedVector2Array(1084, 216, 1077, 210, 1077, 201, 1088, 197, 1099, 1
 
 [node name="dialog_manager" type="CanvasLayer" parent="."]
 script = ExtResource("4_gdt2y")
-story = SubResource("Resource_wm3ai")
+story = ExtResource("5_wm3ai")
 
 [node name="text_box" type="PanelContainer" parent="dialog_manager"]
 z_index = 20
