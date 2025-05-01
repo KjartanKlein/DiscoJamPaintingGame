@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbbb6wpfs2gfa"]
+[gd_scene load_steps=6 format=3 uid="uid://bbbb6wpfs2gfa"]
 
 [ext_resource type="Texture2D" uid="uid://c6dgfxwl1qqu" path="res://assets/maps/map_1.png" id="1_4xfga"]
+[ext_resource type="Texture2D" uid="uid://bqey1inkg0n4h" path="res://assets/maps/map_2.png" id="2_paxxb"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4xfga"]
 polygon = PackedVector2Array(-1266, 265, -1358, 430, -424, 430, -405, 369, 500, 367, 547, 426, 1276, 426, 1153, 261, 1465, 253, 1373, 140, 1646, 140, 1679, -84, 1342, -74, 1271, 22, 1203, -51, 1212, -371, 948, -376, 873, -440, 359, -445, 368, -404, -346, -402, -342, -442, -1016, -433, -1080, -393, -1228, -383, -1478, -145, -1464, 261, -1294, 263, -1447, 529, -1579, 480, -1798, -17, -1199, -1186, -155, -1356, 1428, -1275, 2797, -350, 2716, 923, 1450, 1404, 311, 1352, -984, 1005, -1295, 783, -1392, 460, -1294, 263)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_paxxb"]
 polygon = PackedVector2Array(-138, 224, -137, 243, -384, 242, -357, 6, 398, 8, 480, 243, 126, 243, 122, 228, 446, 228, 381, 16, -344, 18, -361, 225)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gldc4"]
+polygon = PackedVector2Array(4704, 338, 5960, 344, 5702, -190, 4919, -188, 4919, -210, 4854, -158, 4810, -98, 4701, 52, 4703, 166, 4700, 340, 4114, 301, 4682, -833, 5963, -388, 6118, 463, 5849, 888, 4647, 631, 4690, 350, 4704, 338)
 
 [node name="map" type="Node2D"]
 
@@ -29,3 +33,16 @@ polygon = PackedVector2Array(-137, 243, -137, 224, -361, 225, -344, 18, 382, 18,
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="innerWalls"]
 occluder = SubResource("OccluderPolygon2D_paxxb")
+
+[node name="Map2" type="Sprite2D" parent="."]
+position = Vector2(5188, -50)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_paxxb")
+
+[node name="innerWalls2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="innerWalls2"]
+polygon = PackedVector2Array(4754, 283, 5882, 302, 5690, -165, 4908, -167, 4854, -19, 4660, -34, 4590, 89, 4819, 64, 4713, 283, 4413, 287, 4518, -422, 5852, -452, 6013, 550, 4544, 545, 4713, 283)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="innerWalls2"]
+occluder = SubResource("OccluderPolygon2D_gldc4")

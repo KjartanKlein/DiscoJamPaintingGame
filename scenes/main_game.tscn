@@ -28,8 +28,6 @@
 [ext_resource type="Script" uid="uid://dcycl7vt0tqss" path="res://scenes/roof_portal.gd" id="25_wdxbp"]
 [ext_resource type="PackedScene" uid="uid://bbbb6wpfs2gfa" path="res://scenes/map.tscn" id="28_dcudo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ikqpi"]
@@ -88,6 +86,8 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_sp04v")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibnub"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
+
 [node name="Main_game" type="Node2D"]
 z_index = 2
 script = ExtResource("1_sp04v")
@@ -129,40 +129,10 @@ stretch_mode = 1
 unique_name_in_owner = true
 process_mode = 3
 
-[node name="map" type="Node2D" parent="."]
-visible = false
-position = Vector2(773, -1219)
-scale = Vector2(0.498765, 0.5)
-
-[node name="roof" type="StaticBody2D" parent="map"]
-position = Vector2(66.1634, -12)
-
-[node name="floor" type="Polygon2D" parent="map/roof"]
-z_index = -6
-position = Vector2(0.00048949, 2.00024)
-color = Color(1, 0.47451, 1, 1)
-polygon = PackedVector2Array(4835.94, 1940, 4647.48, 2816, 6257.46, 2812, 6119.11, 1940)
-
-[node name="roof_portal" type="Polygon2D" parent="map/roof"]
-z_index = -6
-position = Vector2(70.1733, -230)
-color = Color(0.115234, 0.64766, 0, 1)
-polygon = PackedVector2Array(4819.9, 2528, 4751.74, 2648, 4781.81, 2738, 4831.93, 2696, 4849.98, 2638)
-script = ExtResource("25_wdxbp")
-
-[node name="interaction" parent="map/roof/roof_portal" instance=ExtResource("5_ipu61")]
-position = Vector2(4719.66, 2620)
-scale = Vector2(4.68216, 20)
-hint_text = "E to open door?"
-shape = SubResource("RectangleShape2D_5wboo")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map/roof"]
-polygon = PackedVector2Array(4645.47, 2818, 4583.32, 2832, 4789.83, 1798, 6255.45, 1806, 6391.79, 2930, 4507.13, 3022, 4649.48, 2818, 6259.46, 2812, 6121.12, 1940, 4831.93, 1934)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.193007, 0.165093, 0.32974, 1)
 
-[node name="map2" parent="." instance=ExtResource("28_dcudo")]
+[node name="map" parent="." instance=ExtResource("28_dcudo")]
 
 [node name="Sprites" type="Node2D" parent="."]
 position = Vector2(8.39325, -7.5)
@@ -241,23 +211,26 @@ scale = Vector2(-45, -15)
 hint_text = "Press E to talk to the lady"
 shape = SubResource("RectangleShape2D_5wboo")
 
-[node name="thedoor" type="Node2D" parent="Sprites"]
-position = Vector2(2695.87, 31)
+[node name="thedoor" type="Node2D" parent="Sprites" node_paths=PackedStringArray("location")]
+position = Vector2(2737.98, 51)
 scale = Vector2(1, 1.8)
 script = ExtResource("21_6de02")
+unlocked = true
+location = NodePath("../roof_portal/interaction")
 
 [node name="door" type="Sprite2D" parent="Sprites/thedoor"]
 scale = Vector2(0.810143, 0.752472)
 texture = ExtResource("21_5wboo")
 
 [node name="interaction" parent="Sprites/thedoor" instance=ExtResource("5_ipu61")]
-position = Vector2(-266.45, -41)
+position = Vector2(-190.47, 92.2222)
+rotation = -0.95644
 scale = Vector2(8.2911, 20)
 hint_text = "E to open door?"
 shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="boyfriend" type="Node2D" parent="Sprites"]
-position = Vector2(7469.66, -59)
+position = Vector2(10631.5, 361)
 script = ExtResource("23_cybgu")
 
 [node name="sprite" type="Sprite2D" parent="Sprites/boyfriend"]
@@ -269,6 +242,20 @@ texture = ExtResource("23_6de02")
 position = Vector2(2.00489, -126)
 scale = Vector2(31.5608, 26.5305)
 hint_text = "E to Talk to him"
+shape = SubResource("RectangleShape2D_5wboo")
+
+[node name="roof_portal" type="Polygon2D" parent="Sprites" node_paths=PackedStringArray("location")]
+position = Vector2(4823.13, -2739)
+scale = Vector2(1, 1)
+color = Color(0.113725, 0.647059, 0, 0)
+polygon = PackedVector2Array(4819.9, 2528, 4751.74, 2648, 4781.81, 2738, 4831.93, 2696, 4849.98, 2638)
+script = ExtResource("25_wdxbp")
+location = NodePath("../thedoor/interaction")
+
+[node name="interaction" parent="Sprites/roof_portal" instance=ExtResource("5_ipu61")]
+position = Vector2(4884.06, 2696)
+scale = Vector2(4.68216, 20)
+hint_text = "E to open door?"
 shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="Editor light" type="DirectionalLight2D" parent="."]

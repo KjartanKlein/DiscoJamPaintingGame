@@ -2,8 +2,8 @@ extends Node2D
 @onready var interaction_area = $interaction
 
 @export var unlocked = false
-@onready var player = $"../../../player"
-
+@onready var player = %player
+@export var location : InteractionArea; 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,8 +11,8 @@ func _ready() -> void:
 
 func check_lock()-> void:
 	if unlocked:
-		player.global_position.x += 2000
-		print("teleport")
+		player.global_position = location.global_position
+		player.global_position.x += 200 
 	else:
 		print("I am locked")
 
