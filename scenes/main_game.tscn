@@ -1,8 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://cq8uyx8mlb50b"]
+[gd_scene load_steps=57 format=3 uid="uid://cq8uyx8mlb50b"]
 
 [ext_resource type="PackedScene" uid="uid://1aaa5eih6m57" path="res://scenes/main_char.tscn" id="1_s3esy"]
 [ext_resource type="Script" uid="uid://86fuj3hh8l3s" path="res://scripts/gdscript/main_game.gd" id="1_sp04v"]
 [ext_resource type="Texture2D" uid="uid://bp2gai5eo5ugt" path="res://assets/placeholders/Background/Gray.png" id="2_72e8q"]
+[ext_resource type="Script" uid="uid://my3eb6deom44" path="res://scripts/gdscript/camera_2d.gd" id="3_urnot"]
 [ext_resource type="Texture2D" uid="uid://dklsx4xqlraoj" path="res://scenes/spotlight.tres" id="4_on6n6"]
 [ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="5_ipu61"]
 [ext_resource type="Texture2D" uid="uid://oeu1y5ty8ms4" path="res://assets/placeholders/coffee/Vending Machine 3.1 (No Glass).png" id="6_o6v7o"]
@@ -30,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bbbb6wpfs2gfa" path="res://scenes/map.tscn" id="28_dcudo"]
 [ext_resource type="Texture2D" uid="uid://bjdu5psufhejg" path="res://assets/placeholders/Main Characters/Pink Man/Run (32x32).png" id="29_rr87q"]
 [ext_resource type="Script" uid="uid://cj7psduur0tu2" path="res://scenes/area_2d.gd" id="30_rr87q"]
+[ext_resource type="Script" uid="uid://dwusc8a0wwset" path="res://scripts/gdscript/color_rect.gd" id="31_dp0eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
 
@@ -203,7 +205,7 @@ script = ExtResource("1_sp04v")
 
 [node name="player" parent="." instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
-position = Vector2(-1238, 97)
+position = Vector2(1216, 81)
 SPEED = 10000.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -211,6 +213,7 @@ z_index = 40
 position = Vector2(0, -2)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+script = ExtResource("3_urnot")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player"]
 process_mode = 3
@@ -355,7 +358,6 @@ shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="roof_portal" type="Polygon2D" parent="Sprites" node_paths=PackedStringArray("location")]
 position = Vector2(4823.13, -2739)
-scale = Vector2(1, 1)
 color = Color(0.113725, 0.647059, 0, 0)
 polygon = PackedVector2Array(4819.9, 2528, 4751.74, 2648, 4781.81, 2738, 4831.93, 2696, 4849.98, 2638)
 script = ExtResource("25_wdxbp")
@@ -412,6 +414,21 @@ position = Vector2(651, -62)
 [node name="r2_bot" type="Marker2D" parent="PatrolMarkers"]
 position = Vector2(735, 281)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+light_mask = 512
+visibility_layer = 512
+offset_left = -2038.0
+offset_top = -1783.0
+offset_right = 6898.0
+offset_bottom = 1974.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("31_dp0eu")
+
+[connection signal="playerMoved" from="player" to="player/Camera2D" method="_on_player_player_moved"]
+[connection signal="cameraMoved" from="player/Camera2D" to="CanvasLayer/ColorRect" method="_on_camera_2d_camera_moved"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="Sprites/main_painting" method="_on_tissues_tissue_got"]
 [connection signal="CoffeIsDone" from="Sprites/coffe machine" to="UI" method="_on_coffe_machine_coffe_is_done"]
@@ -419,6 +436,8 @@ position = Vector2(735, 281)
 [connection signal="dialogStart" from="Sprites/main_painting" to="UI" method="_on_dialog_start"]
 [connection signal="dialogStart" from="Sprites/cawfee_lady" to="UI" method="_on_dialog_start"]
 [connection signal="hasKeyCode" from="Sprites/cawfee_lady" to="Sprites/thedoor" method="_on_cawfee_lady_has_key_code"]
+[connection signal="fadeBlack" from="Sprites/thedoor" to="CanvasLayer/ColorRect" method="_on_thedoor_fade_black"]
+[connection signal="movePlayer" from="Sprites/thedoor" to="player" method="_on_thedoor_move_player"]
 [connection signal="allowTears" from="Sprites/boyfriend" to="Sprites/main_painting" method="_on_boyfriend_allow_tears"]
 [connection signal="dialogStart" from="Sprites/boyfriend" to="UI" method="_on_dialog_start"]
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]

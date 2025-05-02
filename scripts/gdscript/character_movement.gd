@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var textbox = $textbox
 @export var min_movement = 100
 @export var max_movement = 20000
+signal playerMoved
 
 func _ready() -> void:
 	textbox.visible = false
@@ -86,3 +87,10 @@ func _process(delta: float) -> void:
 	#	velocity.y = max_movement*direction_y
 		
 	move_and_slide()
+
+
+func _on_thedoor_move_player() -> void:
+	print("player move called")
+	global_position.x +=200
+	playerMoved.emit()
+	
