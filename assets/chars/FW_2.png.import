@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkc2ehc1yga2d"
-path="res://.godot/imported/nasterpiece.png-3b2b5cce13c2260a5c26c05773899ffe.ctex"
+uid="uid://csu7gi6fi3muu"
+path="res://.godot/imported/FW_2.png-7151c288fcfebc5056af67930aad8434.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nasterpiece.png"
-dest_files=["res://.godot/imported/nasterpiece.png-3b2b5cce13c2260a5c26c05773899ffe.ctex"]
+source_file="res://assets/chars/FW_2.png"
+dest_files=["res://.godot/imported/FW_2.png-7151c288fcfebc5056af67930aad8434.ctex"]
 
 [params]
 

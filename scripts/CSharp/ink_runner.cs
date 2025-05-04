@@ -203,8 +203,28 @@ public partial class ink_runner : CanvasLayer
 
         handle_tags();
     }
+    public bool getItem(string item_name){
+        bool status = story.FetchVariable<bool>(item_name);
+        GD.Print(item_name," got ", status );
+        return status;
+    }
 
-
+    public void addItem(string item_name){
+        switch (item_name){
+        case "tissues":
+                story.StoreVariable("item_tissues", true);
+            break;
+        case "crybox":
+                story.StoreVariable("item_crybox", true);
+            break;
+        case "coffee":
+                story.StoreVariable("item_coffee", true);
+            break;
+        case "anime":
+                story.StoreVariable("item_anime", true);
+            break;
+        }
+    }
     public void goTo_knot(string knot_name){
         story.ChoosePathString(knot_name);
     }

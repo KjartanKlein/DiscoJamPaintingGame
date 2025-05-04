@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cq8uyx8mlb50b"]
+[gd_scene load_steps=59 format=3 uid="uid://cq8uyx8mlb50b"]
 
 [ext_resource type="PackedScene" uid="uid://1aaa5eih6m57" path="res://scenes/main_char.tscn" id="1_s3esy"]
 [ext_resource type="Script" uid="uid://86fuj3hh8l3s" path="res://scripts/gdscript/main_game.gd" id="1_sp04v"]
@@ -19,18 +19,19 @@
 [ext_resource type="Script" uid="uid://dkc7vwb3yl6y8" path="res://scripts/gdscript/tissues.gd" id="17_ikqpi"]
 [ext_resource type="Texture2D" uid="uid://dii73j6f6427w" path="res://assets/placeholders/tissue.png" id="17_vnsdt"]
 [ext_resource type="Script" uid="uid://cliq5cptj7o5w" path="res://scenes/main_painting.gd" id="18_ibnub"]
-[ext_resource type="Script" uid="uid://cjljq37gomrk7" path="res://scenes/cawfee_lady.gd" id="19_5wboo"]
+[ext_resource type="Script" uid="uid://cjljq37gomrk7" path="res://scripts/gdscript/cawfee_lady.gd" id="19_5wboo"]
 [ext_resource type="Texture2D" uid="uid://brqawoqydtwds" path="res://assets/sprite/boy_painting_1.png" id="19_ibnub"]
 [ext_resource type="Texture2D" uid="uid://brq57rhf3w40q" path="res://assets/sprite/lady_pick_me_up.png" id="20_5wboo"]
 [ext_resource type="Texture2D" uid="uid://dux5nc2yqoh5g" path="res://assets/sprite/door_code.png" id="21_5wboo"]
 [ext_resource type="Script" uid="uid://780u5wcs5ah0" path="res://scripts/gdscript/thedoor.gd" id="21_6de02"]
 [ext_resource type="Texture2D" uid="uid://brri6a8c84rex" path="res://assets/sprite/other_boy.png" id="23_6de02"]
 [ext_resource type="Script" uid="uid://dysq5taq3rq44" path="res://scripts/gdscript/boyfriend.gd" id="23_cybgu"]
-[ext_resource type="Script" uid="uid://dcycl7vt0tqss" path="res://scenes/roof_portal.gd" id="25_wdxbp"]
-[ext_resource type="Script" uid="uid://dkcjxwf0l7ejy" path="res://scenes/enemy.gd" id="28_307no"]
+[ext_resource type="Script" uid="uid://dcycl7vt0tqss" path="res://scripts/gdscript/roof_portal.gd" id="25_wdxbp"]
+[ext_resource type="Script" uid="uid://dkcjxwf0l7ejy" path="res://scripts/gdscript/enemy.gd" id="28_307no"]
 [ext_resource type="PackedScene" uid="uid://bbbb6wpfs2gfa" path="res://scenes/map.tscn" id="28_dcudo"]
+[ext_resource type="Script" uid="uid://dfnctdd3ox3d7" path="res://scenes/hiding_statue.gd" id="29_4e2rb"]
 [ext_resource type="Texture2D" uid="uid://bjdu5psufhejg" path="res://assets/placeholders/Main Characters/Pink Man/Run (32x32).png" id="29_rr87q"]
-[ext_resource type="Script" uid="uid://cj7psduur0tu2" path="res://scenes/area_2d.gd" id="30_rr87q"]
+[ext_resource type="Texture2D" uid="uid://d33px57xcohdq" path="res://assets/placeholders/Traps/Rock Head/Idle.png" id="29_urnot"]
 [ext_resource type="Script" uid="uid://dwusc8a0wwset" path="res://scripts/gdscript/color_rect.gd" id="31_dp0eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
@@ -92,6 +93,8 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_sp04v")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibnub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urnot"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp0eu"]
 atlas = ExtResource("29_rr87q")
@@ -190,8 +193,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rr87q"]
 gradient = SubResource("Gradient_307no")
-width = 360
-height = 360
+width = 720
+height = 720
 fill = 1
 fill_from = Vector2(0.5, 0.504274)
 fill_to = Vector2(0.794872, 0.188034)
@@ -205,13 +208,14 @@ script = ExtResource("1_sp04v")
 
 [node name="player" parent="." instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
-position = Vector2(1216, 81)
-SPEED = 10000.0
+y_sort_enabled = true
+position = Vector2(-1282, 0)
+SPEED = 40000.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 unique_name_in_owner = true
 z_index = 40
-position = Vector2(0, -2)
+zoom = Vector2(0.4, 0.4)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("3_urnot")
@@ -224,7 +228,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
-position = Vector2(0, 60)
+position = Vector2(-1, 207)
 shadow_enabled = true
 texture = ExtResource("4_on6n6")
 
@@ -252,25 +256,25 @@ position = Vector2(8.39325, -7.5)
 scale = Vector2(0.498765, 0.5)
 
 [node name="Tissues" type="Node2D" parent="Sprites"]
-position = Vector2(-1340.1, 341)
+position = Vector2(-3270.87, 667)
 script = ExtResource("17_ikqpi")
 
 [node name="sprite" type="Sprite2D" parent="Sprites/Tissues"]
 light_mask = 3
 visibility_layer = 2
 material = ExtResource("9_x3ega")
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_vnsdt")
 
 [node name="interaction" parent="Sprites/Tissues" instance=ExtResource("5_ipu61")]
 position = Vector2(-2, -2)
-scale = Vector2(3.58061, 3.28961)
+scale = Vector2(19.5719, 18.5105)
 hint_text = "E to pick up"
 shape = SubResource("RectangleShape2D_ikqpi")
 
 [node name="coffe machine" type="Node2D" parent="Sprites"]
-position = Vector2(674.881, 129)
-scale = Vector2(2, 2)
+position = Vector2(1573.1, -11)
+scale = Vector2(10, 10)
 script = ExtResource("6_wjob3")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Sprites/coffe machine"]
@@ -282,8 +286,8 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="interaction" parent="Sprites/coffe machine" instance=ExtResource("5_ipu61")]
-position = Vector2(-37, 17)
-scale = Vector2(-8.75431, -6.2558)
+position = Vector2(-36.6906, 51.4)
+scale = Vector2(-7, -4)
 hint_text = "E to coffee"
 shape = SubResource("RectangleShape2D_5luka")
 
@@ -297,20 +301,23 @@ max_value = 5.0
 show_percentage = false
 
 [node name="main_painting" type="Node2D" parent="Sprites"]
-position = Vector2(-1713.02, -555)
+position = Vector2(-3629.75, -1017)
 script = ExtResource("18_ibnub")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/main_painting"]
+position = Vector2(-521.288, -262)
+scale = Vector2(2, 2)
 texture = ExtResource("19_ibnub")
 
 [node name="interaction" parent="Sprites/main_painting" instance=ExtResource("5_ipu61")]
-position = Vector2(-8.0198, 398)
-scale = Vector2(-45, -20)
+position = Vector2(-557.377, 654)
+scale = Vector2(-70, -20)
 hint_text = "Press E to examine the boy"
 shape = SubResource("RectangleShape2D_ibnub")
 
 [node name="cawfee_lady" type="Node2D" parent="Sprites"]
-position = Vector2(1242.28, -411)
+position = Vector2(3185.08, -921)
+scale = Vector2(2.5, 2.5)
 script = ExtResource("19_5wboo")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/cawfee_lady"]
@@ -325,8 +332,8 @@ hint_text = "Press E to talk to the lady"
 shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="thedoor" type="Node2D" parent="Sprites" node_paths=PackedStringArray("location")]
-position = Vector2(2737.98, 51)
-scale = Vector2(1, 1.8)
+position = Vector2(6531.35, 111)
+scale = Vector2(2.68416, 4.26646)
 script = ExtResource("21_6de02")
 unlocked = true
 location = NodePath("../roof_portal/interaction")
@@ -343,7 +350,8 @@ hint_text = "E to open door?"
 shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="boyfriend" type="Node2D" parent="Sprites"]
-position = Vector2(10631.5, 361)
+position = Vector2(26855.5, 1043)
+scale = Vector2(4.68911, 3.64)
 script = ExtResource("23_cybgu")
 
 [node name="sprite" type="Sprite2D" parent="Sprites/boyfriend"]
@@ -358,17 +366,47 @@ hint_text = "E to Talk to him"
 shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="roof_portal" type="Polygon2D" parent="Sprites" node_paths=PackedStringArray("location")]
-position = Vector2(4823.13, -2739)
+position = Vector2(19535.5, -2379)
 color = Color(0.113725, 0.647059, 0, 0)
 polygon = PackedVector2Array(4819.9, 2528, 4751.74, 2648, 4781.81, 2738, 4831.93, 2696, 4849.98, 2638)
 script = ExtResource("25_wdxbp")
 location = NodePath("../thedoor/interaction")
+player_offsett = -500
 
 [node name="interaction" parent="Sprites/roof_portal" instance=ExtResource("5_ipu61")]
 position = Vector2(4884.06, 2696)
-scale = Vector2(4.68216, 20)
+scale = Vector2(16, 30)
+skew = 0.0610864
 hint_text = "E to open door?"
 shape = SubResource("RectangleShape2D_5wboo")
+
+[node name="hiding_statue" type="StaticBody2D" parent="Sprites"]
+position = Vector2(-5742.97, -345)
+script = ExtResource("29_4e2rb")
+
+[node name="interaction" parent="Sprites/hiding_statue" instance=ExtResource("5_ipu61")]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(60, 70)
+skew = 0.0610864
+hint_text = "E to Hide"
+shape = SubResource("RectangleShape2D_5wboo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/hiding_statue"]
+scale = Vector2(42.3905, 48.9934)
+shape = SubResource("RectangleShape2D_urnot")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/hiding_statue"]
+z_index = 2
+material = ExtResource("9_x3ega")
+scale = Vector2(30, 30)
+texture = ExtResource("29_urnot")
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprites/hiding_statue"]
+z_index = 1
+rotation = 0.00866302
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(450, 450, 450, -450, -450, -450, -450, 450)
 
 [node name="Editor light" type="DirectionalLight2D" parent="."]
 enabled = false
@@ -378,42 +416,58 @@ editor_only = true
 position = Vector2(1, 34)
 script = ExtResource("28_307no")
 marker_collection = NodePath("../PatrolMarkers")
-speed = 150
-light_offsett = 150
+speed = 400
+light_offsett = 400
 light_angle_offsett = 180
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_5noht")
 
 [node name="PointLight2D" type="PointLight2D" parent="enemy"]
+energy = 2.33
 texture = SubResource("GradientTexture2D_rr87q")
 
 [node name="Area2D" type="Area2D" parent="enemy"]
-script = ExtResource("30_rr87q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/Area2D"]
-position = Vector2(2, 85)
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_307no")
 
 [node name="PatrolMarkers" type="Node" parent="."]
 
+[node name="inside_1" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(0, 271)
+
+[node name="inside_2" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(-584, 300)
+
+[node name="inside_3" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(512, 355)
+
+[node name="inside_4" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(0, 271)
+
 [node name="out_of_door" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(0, 298)
+position = Vector2(0, 778)
 
 [node name="r1_top" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-727, 272)
+position = Vector2(-1629, 767)
 
 [node name="r1_bot" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-721, -31)
+position = Vector2(-1515, -102)
 
 [node name="coridor_top" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(2, -46)
+position = Vector2(4, -95)
 
 [node name="r2_top" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(651, -62)
+position = Vector2(1220, -103)
 
 [node name="r2_bot" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(735, 281)
+position = Vector2(1943, 727)
+
+[node name="out_of_door2" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(0, 778)
 
 [node name="fade container" type="CanvasLayer" parent="."]
 
@@ -439,4 +493,5 @@ script = ExtResource("31_dp0eu")
 [connection signal="allowTears" from="Sprites/boyfriend" to="Sprites/main_painting" method="_on_boyfriend_allow_tears"]
 [connection signal="dialogStart" from="Sprites/boyfriend" to="UI" method="_on_dialog_start"]
 [connection signal="fadeBlack" from="Sprites/roof_portal" to="fade container/FadeModulate" method="_on_fade_req"]
+[connection signal="hide" from="Sprites/hiding_statue" to="player" method="go_hide"]
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]

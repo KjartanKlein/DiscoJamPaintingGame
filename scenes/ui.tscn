@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dph15r4ghmcah" path="res://scripts/gdscript/ui.gd" id="1_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cuadabt74acf0" path="res://assets/sprite/cawfee.png" id="2_8dubc"]
-[ext_resource type="Texture2D" uid="uid://dii73j6f6427w" path="res://assets/placeholders/tissue.png" id="2_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="3_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://cuvl2v1mp0bs2" path="res://assets/sprite/used_tissuessm.png" id="4_8dubc"]
 [ext_resource type="Script" uid="uid://6fu8l80dtoup" path="res://scripts/CSharp/ink_runner.cs" id="4_gdt2y"]
 [ext_resource type="Resource" uid="uid://dlnpry4jaokj0" path="res://inks/Painting_boy.ink" id="5_wm3ai"]
 
@@ -44,13 +44,13 @@ texture = ExtResource("2_8dubc")
 
 [node name="tissue" type="Sprite2D" parent="."]
 position = Vector2(1102, 139)
-scale = Vector2(0.030976, 0.0384764)
+scale = Vector2(0.04, 0.04)
 texture = ExtResource("3_p7vwb")
 
 [node name="crybox" type="Sprite2D" parent="."]
 position = Vector2(1103, 217)
-scale = Vector2(0.176, 0.196154)
-texture = ExtResource("2_x4jx1")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_8dubc")
 
 [node name="animeboy" type="Polygon2D" parent="."]
 position = Vector2(12, 81)

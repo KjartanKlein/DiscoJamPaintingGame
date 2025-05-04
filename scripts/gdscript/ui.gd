@@ -27,12 +27,16 @@ func changeItem(item_added:String, set_to:bool):
 	match item_added:
 		"coffee":
 			coffee.visible = set_to
+			dialog_manager.addItem("coffee")
 		"tissue":
 			tissue.visible = set_to
+			dialog_manager.addItem("tissues")
 		"crybox":
 			crybox.visible = set_to
+			dialog_manager.addItem("crybox")
 		"anime":
 			anime.visible = set_to
+			dialog_manager.addItem("anime")
 		_: #RUST???
 			print("item attempted to be added but could not, in ui.gd : ", item_added,"->", set_to)
 	
@@ -52,10 +56,14 @@ func _on_dialog_manager_dialog_finished() -> void:
 	unlockMovement.emit()
 	get_tree().paused = false
 	InteractionManager.untregister_closest()
-
+	tissue.visible = dialog_manager.getItem("item_tissues")
+	coffee.visible = dialog_manager.getItem("coffee_tissues")
+	crybox.visible = dialog_manager.getItem("crybox_tissues")
+	anime.visible = dialog_manager.getItem("anime_tissues")
 
 func _on_dialog_start(dialog_name: String) -> void:
 	if not dialog_manager.IsActive():
+		dialog_manager.addItem("")
 		dialog_manager.visible = true
 		dialog_manager.goTo_knot(dialog_name)
 		dialog_manager.getNext()

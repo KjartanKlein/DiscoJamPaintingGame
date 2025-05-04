@@ -12,6 +12,7 @@ var selected_position: Marker2D
 var direction : Vector2
 var idle = false
 @onready var light : PointLight2D = $"PointLight2D" 
+@onready var area : Area2D = $"Area2D"
 
 enum states { 
 	Patorl,
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 	var rel = light.global_position - global_position
 	var angle = atan2(rel.y,rel.x)
 	light.rotation = 180*angle/(3.1456) + light_angle_offsett
+	area.global_position = light.global_position
 	move_and_slide()
 		
 func get_next_pos():

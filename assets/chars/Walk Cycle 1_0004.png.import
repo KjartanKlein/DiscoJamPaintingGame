@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcwvml1wbjpj1"
-path="res://.godot/imported/pngtree-arrow-shape-red-simple-direction-png-image_5215909.png-04ca628f6ff4cb9bbf845b356a2dc819.ctex"
+uid="uid://2s266pkp33ft"
+path="res://.godot/imported/Walk Cycle 1_0004.png-dd0aef2cc3bc58248808c26ec3fd37ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pngtree-arrow-shape-red-simple-direction-png-image_5215909.png"
-dest_files=["res://.godot/imported/pngtree-arrow-shape-red-simple-direction-png-image_5215909.png-04ca628f6ff4cb9bbf845b356a2dc819.ctex"]
+source_file="res://assets/chars/Walk Cycle 1_0004.png"
+dest_files=["res://.godot/imported/Walk Cycle 1_0004.png-dd0aef2cc3bc58248808c26ec3fd37ae.ctex"]
 
 [params]
 

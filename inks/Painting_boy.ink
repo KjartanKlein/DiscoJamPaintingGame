@@ -21,6 +21,7 @@ BooHooHoo BooHooHoo my boyfriend where is he #ChangeName:AnimeBoy
 He said... *sniff* He said I was to [shake]emotional[/shake] and that...#ChangeName:AnimeBoy
 He cries inchoherently, maybe he needs tissues but i am not your boss #ChangeName:Narrator 
 * {item_tissues} offer Tissues
+	~ item_tissues = false
 	-> tissues
 * ...
 - close #close
