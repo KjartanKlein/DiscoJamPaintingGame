@@ -1,31 +1,29 @@
 extends ColorRect
-var fadeIn = false
-var fadeOut = false
-var isCameraMoved = false
-var lastModulate = Color(1,1,1,1)
+@export var max_fade_timer = 4.0
+@export var fade_weight = 0.5
+@onready var cam = %Camera2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var fade_req =false
+var timer = 0.0
 func _process(delta: float) -> void:
-	if fadeOut:
-		if isCameraMoved:
-			modulate = lerp(get_modulate(), Color(1,1,1,0),delta)
-			if get_modulate().a<0.01:
-				print("modulated")
-				modulate = Color(1,1,1,0)
-				fadeOut = false
-				isCameraMoved = false
-			lastModulate = get_modulate()
+	if not fade_req and visible:
+			cam.position_smoothing_enabled = true
+	if fade_req:
+		print("fade request recived")
+		visible = true
+		timer = max_fade_timer
+		cam.position_smoothing_enabled = false
+		modulate = Color(1,1,1,1)
+		fade_req = false
+	if visible:
+		timer -= delta 
+		var weight =  fade_weight*(max_fade_timer-timer)/max_fade_timer
+		weight = weight*weight ## more ooompf
+		modulate = lerp(get_modulate(), Color(1,1,1,0),weight)
+		if timer <=0:
+			visible=false
+			modulate = Color(1,1,1,0)	
+			
 
-func _on_thedoor_fade_black() -> void:
-	print("Door fade called")
-	modulate = Color(1,1,1,1)
-	visible = true
-	fadeOut = true
-
-func _on_camera_2d_camera_moved() -> void:
-	isCameraMoved = true
+func _on_fade_req() -> void:
+	fade_req = true

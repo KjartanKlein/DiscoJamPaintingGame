@@ -4,8 +4,8 @@ extends Node2D
 @export var unlocked = false
 @onready var player = %player
 @export var location : InteractionArea; 
+@export var player_offsett = 200
 signal fadeBlack
-signal movePlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,9 +14,7 @@ func _ready() -> void:
 func check_lock()-> void:
 	if unlocked:
 		fadeBlack.emit()
-		player.global_position = location.global_position
-		#player.global_position.x += 200 
-		movePlayer.emit()
+		player.global_position = location.global_position + Vector2(player_offsett,0)
 	else:
 		print("I am locked")
 

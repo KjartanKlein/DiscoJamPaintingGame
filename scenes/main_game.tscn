@@ -209,6 +209,7 @@ position = Vector2(1216, 81)
 SPEED = 10000.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+unique_name_in_owner = true
 z_index = 40
 position = Vector2(0, -2)
 position_smoothing_enabled = true
@@ -414,9 +415,9 @@ position = Vector2(651, -62)
 [node name="r2_bot" type="Marker2D" parent="PatrolMarkers"]
 position = Vector2(735, 281)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="fade container" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="FadeModulate" type="ColorRect" parent="fade container"]
 visible = false
 light_mask = 512
 visibility_layer = 512
@@ -427,8 +428,6 @@ offset_bottom = 1974.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("31_dp0eu")
 
-[connection signal="playerMoved" from="player" to="player/Camera2D" method="_on_player_player_moved"]
-[connection signal="cameraMoved" from="player/Camera2D" to="CanvasLayer/ColorRect" method="_on_camera_2d_camera_moved"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="Sprites/main_painting" method="_on_tissues_tissue_got"]
 [connection signal="CoffeIsDone" from="Sprites/coffe machine" to="UI" method="_on_coffe_machine_coffe_is_done"]
@@ -436,8 +435,8 @@ script = ExtResource("31_dp0eu")
 [connection signal="dialogStart" from="Sprites/main_painting" to="UI" method="_on_dialog_start"]
 [connection signal="dialogStart" from="Sprites/cawfee_lady" to="UI" method="_on_dialog_start"]
 [connection signal="hasKeyCode" from="Sprites/cawfee_lady" to="Sprites/thedoor" method="_on_cawfee_lady_has_key_code"]
-[connection signal="fadeBlack" from="Sprites/thedoor" to="CanvasLayer/ColorRect" method="_on_thedoor_fade_black"]
-[connection signal="movePlayer" from="Sprites/thedoor" to="player" method="_on_thedoor_move_player"]
+[connection signal="fadeBlack" from="Sprites/thedoor" to="fade container/FadeModulate" method="_on_fade_req"]
 [connection signal="allowTears" from="Sprites/boyfriend" to="Sprites/main_painting" method="_on_boyfriend_allow_tears"]
 [connection signal="dialogStart" from="Sprites/boyfriend" to="UI" method="_on_dialog_start"]
+[connection signal="fadeBlack" from="Sprites/roof_portal" to="fade container/FadeModulate" method="_on_fade_req"]
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]
