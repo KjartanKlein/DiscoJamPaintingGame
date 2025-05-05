@@ -1,10 +1,10 @@
 extends CanvasLayer
 
 @onready var dialog_manager=$dialog_manager
-@onready var coffee=$coffee
-@onready var tissue=$tissue
-@onready var crybox=$crybox
-@onready var anime=$animeboy
+@onready var coffee=$inventory/Item2/coffee
+@onready var tissue=$inventory/Item1/tissue
+@onready var crybox=$inventory/Item3/crybox
+@onready var anime=$inventory/Item4/anime_boy
 @export var def_on = false
 
 signal LockMovement()

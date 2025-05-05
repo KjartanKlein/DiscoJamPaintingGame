@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2enh2ufydgvr"]
+
+[ext_resource type="Shader" uid="uid://buge1y7m6rr2" path="res://blurry.gdshader" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://lsphcb070r0j" path="res://scripts/main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://bqey1inkg0n4h" path="res://assets/maps/map_2.png" id="2_wu84c"]
+[ext_resource type="Script" uid="uid://38mlh5kuftla" path="res://Blurry.cs" id="3_8ln24"]
+[ext_resource type="Shader" uid="uid://dcm1k7oyrn01u" path="res://scenes/test_blur.gdshader" id="4_wu84c"]
+[ext_resource type="Theme" uid="uid://dtd7d0qqqnr0g" path="res://main_m_buttons.tres" id="6_oa1go"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtw2f"]
+shader = ExtResource("1_bqqt6")
+shader_parameter/strength = 3.3
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ln24"]
+shader = ExtResource("4_wu84c")
+shader_parameter/blur_amount = 0.72
+shader_parameter/mix_amount = 0.35
+shader_parameter/color_over = Vector4(0.5, 0.4, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0319715, 0.059479, 0.114969, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rtw2f")
+
+[node name="Backround" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Backround"]
+material = SubResource("ShaderMaterial_rtw2f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = 106.0
+offset_right = 2846.0
+offset_bottom = 2818.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_wu84c")
+expand_mode = 2
+stretch_mode = 3
+script = ExtResource("3_8ln24")
+
+[node name="ColorRect" type="ColorRect" parent="Backround/TextureRect"]
+material = SubResource("ShaderMaterial_8ln24")
+layout_mode = 0
+offset_left = -80.0
+offset_top = -665.0
+offset_right = 5860.0
+offset_bottom = 2770.0
+
+[node name="buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.421
+anchor_top = 0.35
+anchor_right = 0.617
+anchor_bottom = 0.707
+offset_left = 71.008
+offset_top = 77.2
+offset_right = -114.784
+offset_bottom = -114.136
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="play" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("6_oa1go")
+text = "Play Game
+"
+
+[node name="credits" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("6_oa1go")
+text = "Credits"
+
+[node name="exit" type="Button" parent="buttons"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("6_oa1go")
+text = "Exit"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.105
+anchor_top = 0.249
+anchor_right = 0.341
+anchor_bottom = 0.688
+offset_left = 0.0399933
+offset_top = -0.352005
+offset_right = 14.168
+offset_bottom = 38.176
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtw2f")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+text = "Art:
+Em
+
+Music and Sound:
+Louise
+
+Programming:
+Kjar
+Aeofi
+
+Writing:
+Danny"
+
+[connection signal="pressed" from="buttons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="buttons/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="buttons/exit" to="." method="_on_exit_pressed"]

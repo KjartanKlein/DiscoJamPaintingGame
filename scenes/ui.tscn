@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2bvu0xtdr23g"]
+[gd_scene load_steps=10 format=3 uid="uid://c2bvu0xtdr23g"]
 
 [ext_resource type="Script" uid="uid://dph15r4ghmcah" path="res://scripts/gdscript/ui.gd" id="1_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cuadabt74acf0" path="res://assets/sprite/cawfee.png" id="2_8dubc"]
 [ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="3_p7vwb"]
 [ext_resource type="Texture2D" uid="uid://cuvl2v1mp0bs2" path="res://assets/sprite/used_tissuessm.png" id="4_8dubc"]
 [ext_resource type="Script" uid="uid://6fu8l80dtoup" path="res://scripts/CSharp/ink_runner.cs" id="4_gdt2y"]
+[ext_resource type="Theme" uid="uid://dqhx1hnyv7h83" path="res://button.tres" id="4_p7vwb"]
 [ext_resource type="Resource" uid="uid://dlnpry4jaokj0" path="res://inks/Painting_boy.ink" id="5_wm3ai"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
@@ -37,42 +38,19 @@ corner_detail = 20
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_yev5y")
 
-[node name="coffee" type="Sprite2D" parent="."]
-position = Vector2(1101, 50)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("2_8dubc")
-
-[node name="tissue" type="Sprite2D" parent="."]
-position = Vector2(1102, 139)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("3_p7vwb")
-
-[node name="crybox" type="Sprite2D" parent="."]
-position = Vector2(1103, 217)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_8dubc")
-
-[node name="animeboy" type="Polygon2D" parent="."]
-position = Vector2(12, 81)
-polygon = PackedVector2Array(1061, 187, 1129, 187, 1129, 243, 1059, 241)
-
-[node name="silute" type="Polygon2D" parent="animeboy"]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(1084, 216, 1077, 210, 1077, 201, 1088, 197, 1099, 194, 1105, 197, 1106, 205, 1104, 208, 1099, 211, 1095, 212, 1094, 216, 1095, 219, 1099, 220, 1103, 220, 1106, 222, 1106, 227, 1105, 231, 1088, 235, 1079, 236, 1073, 234, 1074, 224, 1081, 221, 1085, 219)
-
 [node name="dialog_manager" type="CanvasLayer" parent="."]
 script = ExtResource("4_gdt2y")
 story = ExtResource("5_wm3ai")
+buttonTheme = ExtResource("4_p7vwb")
 
 [node name="text_box" type="PanelContainer" parent="dialog_manager"]
 z_index = 20
-custom_minimum_size = Vector2(0, 200)
 layout_direction = 2
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.691
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -200.0
+offset_top = 0.231964
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xlq6p")
@@ -84,15 +62,15 @@ text = "Hello world"
 
 [node name="name_box" type="PanelContainer" parent="dialog_manager"]
 z_index = 21
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -509.0
-offset_top = 109.0
-offset_right = -359.0
-offset_bottom = 139.0
+anchors_preset = -1
+anchor_left = 0.058
+anchor_top = 0.668
+anchor_right = 0.188
+anchor_bottom = 0.715
+offset_left = 0.183998
+offset_top = 0.135986
+offset_right = 0.423996
+offset_bottom = -0.320007
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nt7q6")
@@ -101,11 +79,87 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nt7q6")
 layout_mode = 2
 bbcode_enabled = true
 text = "Hello world"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="button_container" type="HBoxContainer" parent="dialog_manager"]
-offset_left = 228.0
-offset_top = 395.0
-offset_right = 268.0
-offset_bottom = 435.0
+anchors_preset = -1
+anchor_left = 0.198
+anchor_top = 0.61
+anchor_right = 0.899
+anchor_bottom = 0.68
+offset_left = -1.09601
+offset_top = -0.279999
+offset_right = 0.351929
+offset_bottom = 4.35999
+
+[node name="Button" type="Button" parent="dialog_manager/button_container"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_p7vwb")
+text = "test_1"
+
+[node name="Button2" type="Button" parent="dialog_manager/button_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "test2"
+
+[node name="Button3" type="Button" parent="dialog_manager/button_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "test3"
+
+[node name="inventory" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.9
+anchor_right = 1.0
+anchor_bottom = 0.648
+offset_left = 5.20007
+offset_bottom = -1.90399
+grow_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Item1" type="MarginContainer" parent="inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="tissue" type="Sprite2D" parent="inventory/Item1"]
+position = Vector2(50, 50)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_p7vwb")
+
+[node name="Item2" type="MarginContainer" parent="inventory"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="coffee" type="Sprite2D" parent="inventory/Item2"]
+position = Vector2(50, 50)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_8dubc")
+
+[node name="Item3" type="MarginContainer" parent="inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="crybox" type="Sprite2D" parent="inventory/Item3"]
+position = Vector2(50, 50)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_8dubc")
+
+[node name="Item4" type="MarginContainer" parent="inventory"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="anime_boy" type="Sprite2D" parent="inventory/Item4"]
+position = Vector2(50, 50)
+rotation = -3.14159
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_8dubc")
 
 [connection signal="DialogFinished" from="dialog_manager" to="." method="_on_dialog_manager_dialog_finished"]

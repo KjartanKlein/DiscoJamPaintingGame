@@ -1,7 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://cq8uyx8mlb50b"]
+[gd_scene load_steps=60 format=3 uid="uid://cq8uyx8mlb50b"]
 
+[ext_resource type="Script" uid="uid://mfwsvasgrbi2" path="res://scenes/MainGame.cs" id="1_4e2rb"]
 [ext_resource type="PackedScene" uid="uid://1aaa5eih6m57" path="res://scenes/main_char.tscn" id="1_s3esy"]
-[ext_resource type="Script" uid="uid://86fuj3hh8l3s" path="res://scripts/gdscript/main_game.gd" id="1_sp04v"]
 [ext_resource type="Texture2D" uid="uid://bp2gai5eo5ugt" path="res://assets/placeholders/Background/Gray.png" id="2_72e8q"]
 [ext_resource type="Script" uid="uid://my3eb6deom44" path="res://scripts/gdscript/camera_2d.gd" id="3_urnot"]
 [ext_resource type="Texture2D" uid="uid://dklsx4xqlraoj" path="res://scenes/spotlight.tres" id="4_on6n6"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bjdu5psufhejg" path="res://assets/placeholders/Main Characters/Pink Man/Run (32x32).png" id="29_rr87q"]
 [ext_resource type="Texture2D" uid="uid://d33px57xcohdq" path="res://assets/placeholders/Traps/Rock Head/Idle.png" id="29_urnot"]
 [ext_resource type="Script" uid="uid://dwusc8a0wwset" path="res://scripts/gdscript/color_rect.gd" id="31_dp0eu"]
+[ext_resource type="PackedScene" uid="uid://jksbpfu0c4va" path="res://pause_screen.tscn" id="34_6vdpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
 
@@ -204,7 +205,7 @@ radius = 99.0051
 
 [node name="Main_game" type="Node2D"]
 z_index = 2
-script = ExtResource("1_sp04v")
+script = ExtResource("1_4e2rb")
 
 [node name="player" parent="." instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
@@ -245,6 +246,13 @@ stretch_mode = 1
 [node name="UI" parent="." instance=ExtResource("16_ihbck")]
 unique_name_in_owner = true
 process_mode = 3
+
+[node name="pause_screen" parent="UI" instance=ExtResource("34_6vdpn")]
+visible = false
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.193007, 0.165093, 0.32974, 1)

@@ -2,7 +2,7 @@ using System.Runtime.Serialization;
 using Godot;
 using GodotInk;
 using Ink;
-using Ink.Parsed;
+//using Ink.Parsed;
 
 
 
@@ -69,13 +69,6 @@ public partial class ink_runner : CanvasLayer
     public void setActive(bool to_set){
         is_active=to_set;
     }
-
-    private void test_dialog(){
-        dialog.Text = "hello from the script";
-        char_name.Text = "Scripty";
-        Button button = new() {Text =  "test button from script" };
-        button_container.AddChild(button);
-    }
     private void stop_animation(){
         dialog.VisibleRatio = 1.0f;
         is_animating_text = false;
@@ -98,6 +91,11 @@ public partial class ink_runner : CanvasLayer
 
     private void create_button(string input_text, int index){
         Button button = new() { Text = input_text, Theme = buttonTheme};
+        Vector2 min_size;
+        min_size.X = 250;
+        min_size.Y = 50; 
+        button.CustomMinimumSize = min_size;
+        button.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
         button.Pressed += delegate
             {
                 button_function(index);
