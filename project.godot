@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MuseumBoys"
-run/main_scene="uid://cq8uyx8mlb50b"
+run/main_scene="uid://c2enh2ufydgvr"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0.124958, 0.110887, 0.281777, 1)
 boot_splash/image="uid://dt1xi86ng1ksx"
@@ -35,6 +35,10 @@ project/assembly_name="Museum Boys Dont Cry"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 

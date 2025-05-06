@@ -63,11 +63,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_steuv"]
-radius = 9.80769
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_steuv"]
 
 [node name="main_char" type="CharacterBody2D"]
 z_index = 1
+y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_a0gy4")
 SPEED = 150.0
@@ -80,7 +80,7 @@ animation = &"idle"
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 232)
 scale = Vector2(5.2, 1.72)
-shape = SubResource("CircleShape2D_steuv")
+shape = SubResource("RectangleShape2D_steuv")
 
 [node name="textbox" type="Polygon2D" parent="."]
 z_index = 5

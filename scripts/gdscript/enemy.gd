@@ -13,7 +13,7 @@ var direction : Vector2
 var idle = false
 @onready var light : PointLight2D = $"PointLight2D" 
 @onready var area : Area2D = $"Area2D"
-
+@onready var sprite : AnimatedSprite2D = $"AnimatedSprite2D"
 enum states { 
 	Patorl,
 	Hunt,
@@ -40,7 +40,21 @@ func _process(delta: float) -> void:
 		return
 	if global_position.distance_to(selected_position.position) < 10:
 		get_next_pos()
-	velocity = speed*direction 
+	velocity = speed*direction
+	if abs(direction.x) > abs(direction.y):
+		if sprite.animation != "side":
+			sprite.play("side")
+		if direction.x > 0:
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
+	else:
+		if direction.y > 0:
+			if sprite.animation != "front":
+				sprite.play("front")
+		else:
+			if sprite.animation != "back":
+				sprite.play("back")
 	light.global_position = global_position + direction*light_offsett
 	var rel = light.global_position - global_position
 	var angle = atan2(rel.y,rel.x)

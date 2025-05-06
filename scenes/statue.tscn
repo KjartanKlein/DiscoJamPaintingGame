@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr41xckgfgag4"]
+
+[ext_resource type="Script" uid="uid://dfnctdd3ox3d7" path="res://scenes/hiding_statue.gd" id="1_3nm2d"]
+[ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="2_as6t3"]
+[ext_resource type="Material" uid="uid://bt7nvnvhrquaq" path="res://scenes/disapear_on_shaded.tres" id="3_h8jna"]
+[ext_resource type="Texture2D" uid="uid://ba53bweaktivs" path="res://assets/sprite/statue.png" id="4_hxsj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nme6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nm2d"]
+size = Vector2(418, 216)
+
+[node name="hiding_statue" type="StaticBody2D"]
+script = ExtResource("1_3nm2d")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-60.1486, 918)
+rotation = 0.00866302
+scale = Vector2(1, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-10.1382, -475.93, -3.95776, 6.03455, 398.988, -1.45639, 386.862, -475.369, 370.476, -515.229, 342.322, -524.985, 287.809, -568.514, 269.106, -644.355, 252.703, -686.215, 252.444, -716.214, 256.107, -756.247, 243.852, -782.142, 245.476, -826.158, 227.19, -854, 240.877, -894.12, 236.59, -926.084, 260.268, -970.291, 257.951, -1006.27, 273.869, -1020.41, 277.48, -1066.44, 272.916, -1130.41, 348.928, -1151.07, 338.488, -1198.98, 314.1, -1236.77, 285.754, -1268.52, 269.386, -1306.38, 240.971, -1346.14, 196.951, -1335.76, 174.793, -1347.56, 122.528, -1363.11, 64.5076, -1348.61, 34.9541, -1288.35, 59.6018, -1220.56, 104.021, -1184.95, 72.0295, -1174.67, 38.4316, -1118.37, 36.9639, -1056.36, -70.7625, -993.424, -118.758, -979.008, -98.5186, -957.182, -122.283, -922.975, -118.065, -899.011, -101.974, -893.15, -79.8508, -885.341, -52.3149, -715.574, -30.4519, -737.764, -12.3733, -733.92, -3.79932, -669.992, 26.5854, -634.254, 52.8223, -614.481, 71.23, -572.638, 75.6038, -530.675, 23.6846, -506.224)
+
+[node name="interaction" parent="." instance=ExtResource("2_as6t3")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(162, 789)
+scale = Vector2(40, 30)
+hint_text = "E to Hide"
+shape = SubResource("RectangleShape2D_nme6k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = ExtResource("3_h8jna")
+position = Vector2(86.213, 242)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_hxsj5")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+position = Vector2(-30, -67)
+editor_only = true
+color = Color(0.938493, 1, 0.831642, 1)
+energy = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(133, 811)
+shape = SubResource("RectangleShape2D_3nm2d")

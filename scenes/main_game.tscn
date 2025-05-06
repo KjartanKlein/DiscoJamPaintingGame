@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cq8uyx8mlb50b"]
+[gd_scene load_steps=48 format=3 uid="uid://cq8uyx8mlb50b"]
 
 [ext_resource type="Script" uid="uid://mfwsvasgrbi2" path="res://scenes/MainGame.cs" id="1_4e2rb"]
 [ext_resource type="PackedScene" uid="uid://1aaa5eih6m57" path="res://scenes/main_char.tscn" id="1_s3esy"]
@@ -6,72 +6,44 @@
 [ext_resource type="Script" uid="uid://my3eb6deom44" path="res://scripts/gdscript/camera_2d.gd" id="3_urnot"]
 [ext_resource type="Texture2D" uid="uid://dklsx4xqlraoj" path="res://scenes/spotlight.tres" id="4_on6n6"]
 [ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="5_ipu61"]
-[ext_resource type="Texture2D" uid="uid://oeu1y5ty8ms4" path="res://assets/placeholders/coffee/Vending Machine 3.1 (No Glass).png" id="6_o6v7o"]
 [ext_resource type="Script" uid="uid://gmuhedcy630b" path="res://scripts/gdscript/coffee_get.gd" id="6_wjob3"]
-[ext_resource type="Texture2D" uid="uid://bcdr5jo0wmy6o" path="res://assets/placeholders/coffee/Vending Machine 3.2 (No Glass).png" id="6_ygxny"]
-[ext_resource type="Texture2D" uid="uid://dqjubtmu282hi" path="res://assets/placeholders/coffee/Vending Machine 3.1.png" id="7_wjob3"]
-[ext_resource type="Texture2D" uid="uid://csy1j8ednu51j" path="res://assets/placeholders/coffee/Vending Machine 3.2.png" id="9_8xp80"]
 [ext_resource type="Material" uid="uid://bt7nvnvhrquaq" path="res://scenes/disapear_on_shaded.tres" id="9_x3ega"]
-[ext_resource type="Texture2D" uid="uid://cxx86hs4admrd" path="res://assets/placeholders/coffee/Vending Machine 3.3 (No Glass).png" id="10_sp04v"]
-[ext_resource type="Texture2D" uid="uid://di1l7xqaedtgg" path="res://assets/placeholders/coffee/Vending Machine 3.3.png" id="11_ihbck"]
+[ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="12_sgdes"]
 [ext_resource type="AudioStream" uid="uid://cbktokbnffifc" path="res://assets/music/Crying Boys Theme (DRAFT 1).mp3" id="14_8xp80"]
 [ext_resource type="PackedScene" uid="uid://c2bvu0xtdr23g" path="res://scenes/ui.tscn" id="16_ihbck"]
+[ext_resource type="Texture2D" uid="uid://cy4qqh05abp0h" path="res://assets/sprite/coffee.png" id="16_rr87q"]
 [ext_resource type="Script" uid="uid://dkc7vwb3yl6y8" path="res://scripts/gdscript/tissues.gd" id="17_ikqpi"]
-[ext_resource type="Texture2D" uid="uid://dii73j6f6427w" path="res://assets/placeholders/tissue.png" id="17_vnsdt"]
 [ext_resource type="Script" uid="uid://cliq5cptj7o5w" path="res://scenes/main_painting.gd" id="18_ibnub"]
 [ext_resource type="Script" uid="uid://cjljq37gomrk7" path="res://scripts/gdscript/cawfee_lady.gd" id="19_5wboo"]
 [ext_resource type="Texture2D" uid="uid://brqawoqydtwds" path="res://assets/sprite/boy_painting_1.png" id="19_ibnub"]
 [ext_resource type="Texture2D" uid="uid://brq57rhf3w40q" path="res://assets/sprite/lady_pick_me_up.png" id="20_5wboo"]
-[ext_resource type="Texture2D" uid="uid://dux5nc2yqoh5g" path="res://assets/sprite/door_code.png" id="21_5wboo"]
 [ext_resource type="Script" uid="uid://780u5wcs5ah0" path="res://scripts/gdscript/thedoor.gd" id="21_6de02"]
 [ext_resource type="Texture2D" uid="uid://brri6a8c84rex" path="res://assets/sprite/other_boy.png" id="23_6de02"]
 [ext_resource type="Script" uid="uid://dysq5taq3rq44" path="res://scripts/gdscript/boyfriend.gd" id="23_cybgu"]
+[ext_resource type="PackedScene" uid="uid://bwocfia525m6j" path="res://scenes/plant.tscn" id="25_rr87q"]
 [ext_resource type="Script" uid="uid://dcycl7vt0tqss" path="res://scripts/gdscript/roof_portal.gd" id="25_wdxbp"]
+[ext_resource type="Texture2D" uid="uid://bli0gak2ii20i" path="res://assets/sprite/door.png" id="26_6vdpn"]
+[ext_resource type="PackedScene" uid="uid://ttveyi5yut2c" path="res://scenes/bench.tscn" id="26_dp0eu"]
+[ext_resource type="PackedScene" uid="uid://dr41xckgfgag4" path="res://scenes/statue.tscn" id="27_urnot"]
 [ext_resource type="Script" uid="uid://dkcjxwf0l7ejy" path="res://scripts/gdscript/enemy.gd" id="28_307no"]
 [ext_resource type="PackedScene" uid="uid://bbbb6wpfs2gfa" path="res://scenes/map.tscn" id="28_dcudo"]
-[ext_resource type="Script" uid="uid://dfnctdd3ox3d7" path="res://scenes/hiding_statue.gd" id="29_4e2rb"]
-[ext_resource type="Texture2D" uid="uid://bjdu5psufhejg" path="res://assets/placeholders/Main Characters/Pink Man/Run (32x32).png" id="29_rr87q"]
-[ext_resource type="Texture2D" uid="uid://d33px57xcohdq" path="res://assets/placeholders/Traps/Rock Head/Idle.png" id="29_urnot"]
+[ext_resource type="Texture2D" uid="uid://lw1h4tiu04dp" path="res://assets/sprite/guard_furnature.png" id="28_sgdes"]
+[ext_resource type="Texture2D" uid="uid://hfr067mrjh7t" path="res://assets/chars/guard/back view_0000.png" id="29_jmxl0"]
+[ext_resource type="Texture2D" uid="uid://hsrft3drspkw" path="res://assets/chars/guard/back view_0001.png" id="30_sgdes"]
 [ext_resource type="Script" uid="uid://dwusc8a0wwset" path="res://scripts/gdscript/color_rect.gd" id="31_dp0eu"]
+[ext_resource type="Texture2D" uid="uid://cp3qchijh8f7r" path="res://assets/chars/guard/front view_0000.png" id="31_ibep1"]
+[ext_resource type="Texture2D" uid="uid://bnjoajo56khwb" path="res://assets/chars/guard/front view_0001.png" id="32_q875d"]
+[ext_resource type="Texture2D" uid="uid://yjrpxmwpelgk" path="res://assets/chars/guard/side view_0000.png" id="33_dvo3n"]
+[ext_resource type="Texture2D" uid="uid://fu2rxcdxnbxu" path="res://assets/chars/guard/side view_0001.png" id="34_1vioj"]
 [ext_resource type="PackedScene" uid="uid://jksbpfu0c4va" path="res://pause_screen.tscn" id="34_6vdpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ikqpi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_o6v7o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_wjob3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ygxny")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_8xp80")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_sp04v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_ihbck")
-}],
-"loop": false,
-"name": &"dispense",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_o6v7o")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibnub"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5luka"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urnot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xp80"]
 bg_color = Color(0.431373, 0.431373, 0.431373, 0.596078)
@@ -91,114 +63,53 @@ bg_color = Color(0.83624, 0.120665, 0, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8xp80")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_sp04v")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibnub"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_urnot"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dp0eu"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_urnot"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4e2rb"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6vdpn"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmxl0"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgdes"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibep1"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q875d"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvo3n"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vioj"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2o8j"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oojmo"]
-atlas = ExtResource("29_rr87q")
-region = Rect2(352, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5noht"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2o8j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dp0eu")
+"texture": ExtResource("29_jmxl0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_urnot")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4e2rb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6vdpn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmxl0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sgdes")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ibep1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q875d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dvo3n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1vioj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g2o8j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oojmo")
+"texture": ExtResource("30_sgdes")
 }],
 "loop": true,
-"name": &"default",
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_ibep1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_q875d")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_dvo3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_1vioj")
+}],
+"loop": true,
+"name": &"side",
 "speed": 5.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_307no"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rr87q"]
 gradient = SubResource("Gradient_307no")
-width = 720
-height = 720
+width = 2000
+height = 2000
 fill = 1
-fill_from = Vector2(0.5, 0.504274)
-fill_to = Vector2(0.794872, 0.188034)
+fill_from = Vector2(0.504274, 0.482906)
+fill_to = Vector2(0.67094, 0.192308)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_307no"]
 radius = 99.0051
@@ -207,10 +118,10 @@ radius = 99.0051
 z_index = 2
 script = ExtResource("1_4e2rb")
 
-[node name="player" parent="." instance=ExtResource("1_s3esy")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
-y_sort_enabled = true
-position = Vector2(-1282, 0)
+z_index = 2
+position = Vector2(-1044, -298)
 SPEED = 40000.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -230,6 +141,14 @@ parameters/looping = true
 
 [node name="PointLight2D" type="PointLight2D" parent="player"]
 position = Vector2(-1, 207)
+color = Color(1, 1, 0.286275, 1)
+energy = 0.48
+shadow_enabled = true
+texture = ExtResource("4_on6n6")
+
+[node name="headlight" type="PointLight2D" parent="player"]
+position = Vector2(-6, -96)
+energy = 0.48
 shadow_enabled = true
 texture = ExtResource("4_on6n6")
 
@@ -249,19 +168,16 @@ process_mode = 3
 
 [node name="pause_screen" parent="UI" instance=ExtResource("34_6vdpn")]
 visible = false
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -576.0
-offset_bottom = -324.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.193007, 0.165093, 0.32974, 1)
+color = Color(0.0894261, 0.0943732, 0.177501, 1)
 
 [node name="map" parent="." instance=ExtResource("28_dcudo")]
+z_index = -1
 
 [node name="Sprites" type="Node2D" parent="."]
 position = Vector2(8.39325, -7.5)
-scale = Vector2(0.498765, 0.5)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tissues" type="Node2D" parent="Sprites"]
 position = Vector2(-3270.87, 667)
@@ -271,8 +187,8 @@ script = ExtResource("17_ikqpi")
 light_mask = 3
 visibility_layer = 2
 material = ExtResource("9_x3ega")
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("17_vnsdt")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_sgdes")
 
 [node name="interaction" parent="Sprites/Tissues" instance=ExtResource("5_ipu61")]
 position = Vector2(-2, -2)
@@ -280,36 +196,8 @@ scale = Vector2(19.5719, 18.5105)
 hint_text = "E to pick up"
 shape = SubResource("RectangleShape2D_ikqpi")
 
-[node name="coffe machine" type="Node2D" parent="Sprites"]
-position = Vector2(1573.1, -11)
-scale = Vector2(10, 10)
-script = ExtResource("6_wjob3")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Sprites/coffe machine"]
-light_mask = 3
-visibility_layer = 2
-material = ExtResource("9_x3ega")
-sprite_frames = SubResource("SpriteFrames_ikqpi")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="interaction" parent="Sprites/coffe machine" instance=ExtResource("5_ipu61")]
-position = Vector2(-36.6906, 51.4)
-scale = Vector2(-7, -4)
-hint_text = "E to coffee"
-shape = SubResource("RectangleShape2D_5luka")
-
-[node name="ProgressBar" type="ProgressBar" parent="Sprites/coffe machine"]
-offset_left = -23.0
-offset_top = -35.0
-offset_right = 23.0
-offset_bottom = -22.0
-theme = SubResource("Theme_ihbck")
-max_value = 5.0
-show_percentage = false
-
 [node name="main_painting" type="Node2D" parent="Sprites"]
-position = Vector2(-3629.75, -1017)
+position = Vector2(-3110.47, -1041)
 script = ExtResource("18_ibnub")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/main_painting"]
@@ -341,19 +229,19 @@ shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="thedoor" type="Node2D" parent="Sprites" node_paths=PackedStringArray("location")]
 position = Vector2(6531.35, 111)
-scale = Vector2(2.68416, 4.26646)
 script = ExtResource("21_6de02")
 unlocked = true
 location = NodePath("../roof_portal/interaction")
 
 [node name="door" type="Sprite2D" parent="Sprites/thedoor"]
-scale = Vector2(0.810143, 0.752472)
-texture = ExtResource("21_5wboo")
+position = Vector2(32.0748, -78)
+scale = Vector2(2, 2)
+texture = ExtResource("26_6vdpn")
 
 [node name="interaction" parent="Sprites/thedoor" instance=ExtResource("5_ipu61")]
-position = Vector2(-190.47, 92.2222)
-rotation = -0.95644
-scale = Vector2(8.2911, 20)
+position = Vector2(-76.1926, 348)
+rotation = -0.657989
+scale = Vector2(30, 50)
 hint_text = "E to open door?"
 shape = SubResource("RectangleShape2D_5wboo")
 
@@ -388,37 +276,88 @@ skew = 0.0610864
 hint_text = "E to open door?"
 shape = SubResource("RectangleShape2D_5wboo")
 
-[node name="hiding_statue" type="StaticBody2D" parent="Sprites"]
-position = Vector2(-5742.97, -345)
-script = ExtResource("29_4e2rb")
+[node name="HidingSprites" type="Node2D" parent="Sprites"]
 
-[node name="interaction" parent="Sprites/hiding_statue" instance=ExtResource("5_ipu61")]
-z_index = 2
-y_sort_enabled = true
-scale = Vector2(60, 70)
-skew = 0.0610864
-hint_text = "E to Hide"
-shape = SubResource("RectangleShape2D_5wboo")
+[node name="plant" parent="Sprites/HidingSprites" instance=ExtResource("25_rr87q")]
+position = Vector2(-4940.99, -1223)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/hiding_statue"]
-scale = Vector2(42.3905, 48.9934)
+[node name="plant3" parent="Sprites/HidingSprites" instance=ExtResource("25_rr87q")]
+position = Vector2(2735.97, 1313)
+z_selector = 5
+
+[node name="plant4" parent="Sprites/HidingSprites" instance=ExtResource("25_rr87q")]
+position = Vector2(5422.61, -889)
+
+[node name="bench" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
+position = Vector2(-3928.49, -185)
+
+[node name="bench2" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
+position = Vector2(-4165.07, 785)
+
+[node name="bench3" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
+position = Vector2(3547.98, -111)
+scale = Vector2(-1, 1)
+
+[node name="bench4" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
+position = Vector2(3872.78, 787)
+scale = Vector2(-1, 1)
+
+[node name="hiding_statue" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
+position = Vector2(-2148.09, -1293)
+
+[node name="hiding_statue2" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
+z_index = 4
+position = Vector2(5542.9, 1225)
+z_selector = 5
+
+[node name="hiding_statue3" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
+z_index = 4
+position = Vector2(-6166.02, 1077)
+scale = Vector2(-1, 1)
+z_selector = 5
+
+[node name="hiding_statue4" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
+z_index = 4
+position = Vector2(-2563.12, 1163)
+z_selector = 5
+
+[node name="GuardRoom" type="Node2D" parent="Sprites"]
+
+[node name="coffe machine" type="Node2D" parent="Sprites/GuardRoom"]
+position = Vector2(1551.04, -107)
+script = ExtResource("6_wjob3")
+
+[node name="interaction" parent="Sprites/GuardRoom/coffe machine" instance=ExtResource("5_ipu61")]
+position = Vector2(-32.0794, 378)
+scale = Vector2(46.0565, 20)
+hint_text = "E to coffee"
 shape = SubResource("RectangleShape2D_urnot")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprites/hiding_statue"]
-z_index = 2
-material = ExtResource("9_x3ega")
-scale = Vector2(30, 30)
-texture = ExtResource("29_urnot")
+[node name="ProgressBar" type="ProgressBar" parent="Sprites/GuardRoom/coffe machine"]
+offset_left = -23.0
+offset_top = -35.0
+offset_right = 23.0
+offset_bottom = -22.0
+theme = SubResource("Theme_ihbck")
+max_value = 5.0
+show_percentage = false
 
-[node name="Polygon2D" type="Polygon2D" parent="Sprites/hiding_statue"]
-z_index = 1
-rotation = 0.00866302
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(450, 450, 450, -450, -450, -450, -450, 450)
+[node name="Sprite2D" type="Sprite2D" parent="Sprites/GuardRoom/coffe machine"]
+position = Vector2(6.17346, -164)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_rr87q")
+
+[node name="guard_furniture" type="Node2D" parent="Sprites/GuardRoom"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites/GuardRoom/guard_furniture"]
+position = Vector2(-778.786, 91)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_sgdes")
 
 [node name="Editor light" type="DirectionalLight2D" parent="."]
-enabled = false
+visible = false
 editor_only = true
+energy = 0.04
 
 [node name="enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("marker_collection")]
 position = Vector2(1, 34)
@@ -429,11 +368,13 @@ light_offsett = 400
 light_angle_offsett = 180
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
-scale = Vector2(10, 10)
-sprite_frames = SubResource("SpriteFrames_5noht")
+position = Vector2(92, -76)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_g2o8j")
+animation = &"front"
 
 [node name="PointLight2D" type="PointLight2D" parent="enemy"]
-energy = 2.33
+blend_mode = 2
 texture = SubResource("GradientTexture2D_rr87q")
 
 [node name="Area2D" type="Area2D" parent="enemy"]
@@ -448,19 +389,25 @@ shape = SubResource("CircleShape2D_307no")
 position = Vector2(0, 271)
 
 [node name="inside_2" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-584, 300)
+position = Vector2(-413, 333)
 
 [node name="inside_3" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(512, 355)
+position = Vector2(708, 342)
 
 [node name="inside_4" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(0, 271)
+position = Vector2(0, 421)
 
 [node name="out_of_door" type="Marker2D" parent="PatrolMarkers"]
 position = Vector2(0, 778)
 
 [node name="r1_top" type="Marker2D" parent="PatrolMarkers"]
 position = Vector2(-1629, 767)
+
+[node name="r1_top2" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(-2793, 828)
+
+[node name="r1_bot2" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(-2470, -189)
 
 [node name="r1_bot" type="Marker2D" parent="PatrolMarkers"]
 position = Vector2(-1515, -102)
@@ -472,7 +419,13 @@ position = Vector2(4, -95)
 position = Vector2(1220, -103)
 
 [node name="r2_bot" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(1943, 727)
+position = Vector2(2160, -188)
+
+[node name="r2_bot2" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(2524, 687)
+
+[node name="r2_top2" type="Marker2D" parent="PatrolMarkers"]
+position = Vector2(1584, 772)
 
 [node name="out_of_door2" type="Marker2D" parent="PatrolMarkers"]
 position = Vector2(0, 778)
@@ -490,10 +443,12 @@ offset_bottom = 1974.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("31_dp0eu")
 
+[node name="game_light" type="DirectionalLight2D" parent="."]
+color = Color(0.0997823, 0.131661, 0.228114, 1)
+energy = 0.02
+
 [connection signal="tissueGot" from="Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="Sprites/main_painting" method="_on_tissues_tissue_got"]
-[connection signal="CoffeIsDone" from="Sprites/coffe machine" to="UI" method="_on_coffe_machine_coffe_is_done"]
-[connection signal="CoffeIsDone" from="Sprites/coffe machine" to="Sprites/cawfee_lady" method="_on_coffe_machine_coffe_is_done"]
 [connection signal="dialogStart" from="Sprites/main_painting" to="UI" method="_on_dialog_start"]
 [connection signal="dialogStart" from="Sprites/cawfee_lady" to="UI" method="_on_dialog_start"]
 [connection signal="hasKeyCode" from="Sprites/cawfee_lady" to="Sprites/thedoor" method="_on_cawfee_lady_has_key_code"]
@@ -501,5 +456,6 @@ script = ExtResource("31_dp0eu")
 [connection signal="allowTears" from="Sprites/boyfriend" to="Sprites/main_painting" method="_on_boyfriend_allow_tears"]
 [connection signal="dialogStart" from="Sprites/boyfriend" to="UI" method="_on_dialog_start"]
 [connection signal="fadeBlack" from="Sprites/roof_portal" to="fade container/FadeModulate" method="_on_fade_req"]
-[connection signal="hide" from="Sprites/hiding_statue" to="player" method="go_hide"]
+[connection signal="CoffeIsDone" from="Sprites/GuardRoom/coffe machine" to="UI" method="_on_coffe_machine_coffe_is_done"]
+[connection signal="CoffeIsDone" from="Sprites/GuardRoom/coffe machine" to="Sprites/cawfee_lady" method="_on_coffe_machine_coffe_is_done"]
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]

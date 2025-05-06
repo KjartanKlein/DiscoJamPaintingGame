@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var sprite: Sprite2D = $Sprite2D
 @onready var interaction_area :InteractionArea = $interaction
 @onready var progress : ProgressBar = $ProgressBar
 # Called when the node enters the scene tree for the first time.
@@ -9,15 +9,13 @@ var dispensing = false;
 signal CoffeIsDone
 
 func _ready() -> void:
-	sprite.animation = "idle"
 	interaction_area.interact  = Callable(self, "coffee_dispense")
 	progress.visible = false
 	pass # Replace with function body.
 
 func  coffee_dispense()-> void:
-	if sprite.animation != "dispense":
+	if timer == 0.0:
 		print("making a fresh cuppa joe")
-		sprite.play("dispense") 
 		dispensing = true;		
 		timer = 5.0
 		progress.visible=true	
@@ -26,7 +24,7 @@ func  coffee_dispense()-> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-var timer = 5.0
+var timer = 0.0
 func _process(delta: float) -> void:
 	if dispensing: 
 		
@@ -37,4 +35,3 @@ func _process(delta: float) -> void:
 			progress.visible=false
 			print("fresh cuppa over")
 			CoffeIsDone.emit()
-			sprite.play("idle")
