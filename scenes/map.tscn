@@ -1,41 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbbb6wpfs2gfa"]
+[gd_scene load_steps=10 format=3 uid="uid://bbbb6wpfs2gfa"]
 
+[ext_resource type="Script" uid="uid://b2eaq1ik7ak53" path="res://scenes/map.gd" id="1_2klcf"]
 [ext_resource type="Texture2D" uid="uid://c6dgfxwl1qqu" path="res://assets/maps/map_1.png" id="1_4xfga"]
 [ext_resource type="Texture2D" uid="uid://bqey1inkg0n4h" path="res://assets/maps/map_2.png" id="2_paxxb"]
 [ext_resource type="Texture2D" uid="uid://ckke8s0o3e8sp" path="res://assets/maps/map_2_rail.png" id="3_0cso3"]
 [ext_resource type="Texture2D" uid="uid://dgqgdji7klxm5" path="res://assets/maps/map_2_no_rail.png" id="4_2klcf"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gldc4"]
+polygon = PackedVector2Array(4704, 338, 5960, 344, 5702, -190, 4919, -188, 4919, -210, 4854, -158, 4810, -98, 4701, 52, 4703, 166, 4700, 340, 4114, 301, 4682, -833, 5963, -388, 6118, 463, 5849, 888, 4647, 631, 4690, 350, 4704, 338)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4xfga"]
 polygon = PackedVector2Array(-1266, 265, -1358, 430, -424, 430, -405, 369, 500, 367, 547, 426, 1276, 426, 1153, 261, 1465, 253, 1373, 140, 1646, 140, 1679, -84, 1342, -74, 1271, 22, 1203, -51, 1212, -371, 948, -376, 873, -440, 359, -445, 368, -404, -346, -402, -342, -442, -1016, -433, -1080, -393, -1228, -383, -1478, -145, -1464, 261, -1294, 263, -1447, 529, -1579, 480, -1798, -17, -1199, -1186, -155, -1356, 1428, -1275, 2797, -350, 2716, 923, 1450, 1404, 311, 1352, -984, 1005, -1295, 783, -1392, 460, -1294, 263)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_paxxb"]
-polygon = PackedVector2Array(-138, 224, -137, 243, -384, 242, -357, 6, 398, 8, 480, 243, 126, 243, 122, 228, 446, 228, 381, 16, -344, 18, -361, 225)
+polygon = PackedVector2Array(-54.4, 224, -362, 226.4, -341.6, 16.4, -342, -156, 385.6, -153.2, 380.8, 17.6, 444.8, 224.4, 59.2, 224.8, 61.6, 241.2, 131.2, 277.6, 90.8, 385.2, -7.2, 438, 317.2, 662.8, 746.4, 753.2, 1547.2, 676.8, 1852.4, -4.8, 1132.4, -614.8, -78.4, -691.2, -1433.2, -634.8, -1576.4, 540, -484, 629.2, -7.6, 437.6, -111.2, 383.2, -143.2, 295.6, -55.2, 243.2)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gldc4"]
-polygon = PackedVector2Array(4704, 338, 5960, 344, 5702, -190, 4919, -188, 4919, -210, 4854, -158, 4810, -98, 4701, 52, 4703, 166, 4700, 340, 4114, 301, 4682, -833, 5963, -388, 6118, 463, 5849, 888, 4647, 631, 4690, 350, 4704, 338)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2lpho"]
+polygon = PackedVector2Array(-68.8, 18, -72.4, 240.4, -91.2635, 240.4, -88.8, 92.4, -348.8, 95.2, -366.4, 98.8, -385.2, 242, -359.2, 8, 395.2, 8, 476.4, 242, 464, 242.4, 410.4, 74.4, 84, 87.6, 82.8, 242.8, 59.6, 241.2, 55.6, 18.8)
 
-[node name="map" type="Node2D"]
-
-[node name="map_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_4xfga")
-
-[node name="outer_walls" type="StaticBody2D" parent="."]
-scale = Vector2(2.5, 2.5)
-
-[node name="outerwalls" type="CollisionPolygon2D" parent="outer_walls"]
-polygon = PackedVector2Array(-400, 376, -424, 448, -1368, 440, -1272, 272, -1472, 264, -1360, 120, -1560, 120, -1552, -24, -1344, -8, -1304, 56, -1288, 56, -1232, -40, -1072, -40, -1016, -128, -336, -136, -336, -80, 368, -96, 368, -144, 880, -144, 936, -64, 1200, -56, 1272, 16, 1336, -72, 1632, -72, 1648, 24, 1648, 136, 1552, 144, 1368, 144, 1448, 248, 1456, 264, 1160, 264, 1280, 424, 536, 432, 504, 376, -392, 376, -416, 448, 544, 784, 1592, 544, 1784, -24, 1512, -504, 896, -704, 0, -672, -1080, -648, -1448, -632, -1784, -328, -1944, 360, -1760, 728, -1400, 1040, -712, 1072, -376, 864, -424, 512, -424, 464, -392, 376)
-
-[node name="Lightecluder" type="LightOccluder2D" parent="outer_walls"]
-occluder = SubResource("OccluderPolygon2D_4xfga")
-
-[node name="innerWalls" type="StaticBody2D" parent="."]
-scale = Vector2(2.5, 2.5)
-
-[node name="Innerroom" type="CollisionPolygon2D" parent="innerWalls"]
-polygon = PackedVector2Array(-137, 243, -137, 224, -361, 225, -344, 18, 382, 18, 446, 228, 125, 228, 126, 246, 481, 242, 395, 3, -359, 6, -383, 243)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="innerWalls"]
-occluder = SubResource("OccluderPolygon2D_paxxb")
+[node name="map" type="Node2D" node_paths=PackedStringArray("bodies_to_disable", "bodies_to_enable")]
+script = ExtResource("1_2klcf")
+bodies_to_disable = [NodePath("Node2D/innerRoom/inside the room")]
+bodies_to_enable = [NodePath("Node2D/innerRoom/innerWalls")]
 
 [node name="Map2" type="Sprite2D" parent="."]
 position = Vector2(13085, 20)
@@ -45,17 +31,61 @@ texture = ExtResource("2_paxxb")
 z_index = 20
 texture = ExtResource("3_0cso3")
 
-[node name="innerWalls2" type="StaticBody2D" parent="."]
+[node name="outside" type="StaticBody2D" parent="."]
 position = Vector2(110, 142)
 scale = Vector2(2.5, 2.5)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="innerWalls2"]
-polygon = PackedVector2Array(4754, 283, 5882, 302, 5690, -165, 4908, -167, 4854, -19, 4660, -34, 4590, 89, 4819, 64, 4713, 283, 4413, 287, 4518, -422, 5852, -452, 6013, 550, 4544, 545, 4713, 283)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="outside"]
+polygon = PackedVector2Array(4754, 283, 5882, 302, 5690, -165, 4908, -167, 4854, -16.8, 4818.4, -19.2, 4819, 64, 4713, 283, 4413, 287, 4518, -422, 5852, -452, 6013, 550, 4544, 545, 4713, 283)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="innerWalls2"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="outside"]
 occluder = SubResource("OccluderPolygon2D_gldc4")
 
 [node name="roof" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(13085, 33)
 texture = ExtResource("4_2klcf")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="map_sprite" type="Sprite2D" parent="Node2D"]
+z_index = -1
+texture = ExtResource("1_4xfga")
+
+[node name="outer_walls" type="StaticBody2D" parent="Node2D"]
+scale = Vector2(2.5, 2.5)
+
+[node name="outerwalls" type="CollisionPolygon2D" parent="Node2D/outer_walls"]
+polygon = PackedVector2Array(-400, 376, -424, 448, -1368, 440, -1272, 272, -1472, 264, -1360, 120, -1560, 120, -1552, -24, -1344, -8, -1304, 56, -1288, 56, -1232, -40, -1072, -40, -1016, -128, -336, -136, -336, -80, 368, -96, 368, -144, 880, -144, 936, -64, 1200, -56, 1272, 16, 1336, -72, 1632, -72, 1648, 24, 1648, 136, 1552, 144, 1368, 144, 1448, 248, 1456, 264, 1160, 264, 1280, 424, 536, 432, 504, 376, -392, 376, -416, 448, 544, 784, 1592, 544, 1784, -24, 1512, -504, 896, -704, 0, -672, -1080, -648, -1448, -632, -1784, -328, -1944, 360, -1760, 728, -1400, 1040, -712, 1072, -376, 864, -424, 512, -424, 464, -392, 376)
+
+[node name="Lightecluder" type="LightOccluder2D" parent="Node2D/outer_walls"]
+occluder = SubResource("OccluderPolygon2D_4xfga")
+
+[node name="innerRoom" type="Node2D" parent="Node2D"]
+
+[node name="innerWalls" type="StaticBody2D" parent="Node2D/innerRoom"]
+visible = false
+scale = Vector2(2.5, 2.5)
+
+[node name="Innerroom" type="CollisionPolygon2D" parent="Node2D/innerRoom/innerWalls"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Node2D/innerRoom/innerWalls"]
+occluder = SubResource("OccluderPolygon2D_paxxb")
+
+[node name="insideArea" type="Area2D" parent="Node2D/innerRoom"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/innerRoom/insideArea"]
+polygon = PackedVector2Array(-863, 43, -908, 562, -338, 559, -346, 608, 319, 608, 308, 569, 1117, 568, 949, 40)
+
+[node name="inside the room" type="StaticBody2D" parent="Node2D/innerRoom"]
+scale = Vector2(2.5, 2.5)
+
+[node name="Innerroom" type="CollisionPolygon2D" parent="Node2D/innerRoom/inside the room"]
+polygon = PackedVector2Array(-71.6, 223.2, -72.8, 241.6, -383.6, 240.8, -359.2, 2.8, 398.4, 4, 480.4, 243.6, 60, 242.4, 60.4, 222.8, 445.6, 225.6, 380.4, 12.4, -344.8, 19.2, -360, 222.8)
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Node2D/innerRoom/inside the room"]
+occluder = SubResource("OccluderPolygon2D_2lpho")
+
+[connection signal="swaproom" from="." to="Node2D/innerRoom/innerWalls" method="_on_map_swaproom"]
+[connection signal="swaproom" from="." to="Node2D/innerRoom/inside the room" method="_on_map_swaproom"]
+[connection signal="body_entered" from="Node2D/innerRoom/insideArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Node2D/innerRoom/insideArea" to="." method="_on_area_2d_body_exited"]

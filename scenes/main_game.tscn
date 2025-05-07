@@ -6,12 +6,10 @@
 [ext_resource type="Script" uid="uid://my3eb6deom44" path="res://scripts/gdscript/camera_2d.gd" id="3_urnot"]
 [ext_resource type="Texture2D" uid="uid://dklsx4xqlraoj" path="res://scenes/spotlight.tres" id="4_on6n6"]
 [ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="5_ipu61"]
-[ext_resource type="Script" uid="uid://gmuhedcy630b" path="res://scripts/gdscript/coffee_get.gd" id="6_wjob3"]
 [ext_resource type="Material" uid="uid://bt7nvnvhrquaq" path="res://scenes/disapear_on_shaded.tres" id="9_x3ega"]
 [ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="12_sgdes"]
 [ext_resource type="AudioStream" uid="uid://cbktokbnffifc" path="res://assets/music/Crying Boys Theme (DRAFT 1).mp3" id="14_8xp80"]
 [ext_resource type="PackedScene" uid="uid://c2bvu0xtdr23g" path="res://scenes/ui.tscn" id="16_ihbck"]
-[ext_resource type="Texture2D" uid="uid://cy4qqh05abp0h" path="res://assets/sprite/coffee.png" id="16_rr87q"]
 [ext_resource type="Script" uid="uid://dkc7vwb3yl6y8" path="res://scripts/gdscript/tissues.gd" id="17_ikqpi"]
 [ext_resource type="Script" uid="uid://cliq5cptj7o5w" path="res://scenes/main_painting.gd" id="18_ibnub"]
 [ext_resource type="Script" uid="uid://cjljq37gomrk7" path="res://scripts/gdscript/cawfee_lady.gd" id="19_5wboo"]
@@ -24,11 +22,15 @@
 [ext_resource type="Script" uid="uid://dcycl7vt0tqss" path="res://scripts/gdscript/roof_portal.gd" id="25_wdxbp"]
 [ext_resource type="Texture2D" uid="uid://bli0gak2ii20i" path="res://assets/sprite/door.png" id="26_6vdpn"]
 [ext_resource type="PackedScene" uid="uid://ttveyi5yut2c" path="res://scenes/bench.tscn" id="26_dp0eu"]
+[ext_resource type="PackedScene" uid="uid://bdd5t6cvnlgxo" path="res://scenes/coffee_machine.tscn" id="27_jmxl0"]
+[ext_resource type="Texture2D" uid="uid://dog02r0xv04f" path="res://assets/sprite/rug.png" id="27_sgdes"]
 [ext_resource type="PackedScene" uid="uid://dr41xckgfgag4" path="res://scenes/statue.tscn" id="27_urnot"]
 [ext_resource type="Script" uid="uid://dkcjxwf0l7ejy" path="res://scripts/gdscript/enemy.gd" id="28_307no"]
 [ext_resource type="PackedScene" uid="uid://bbbb6wpfs2gfa" path="res://scenes/map.tscn" id="28_dcudo"]
 [ext_resource type="Texture2D" uid="uid://lw1h4tiu04dp" path="res://assets/sprite/guard_furnature.png" id="28_sgdes"]
+[ext_resource type="Texture2D" uid="uid://dm8akre13msxh" path="res://assets/sprite/doorframe.png" id="29_ibep1"]
 [ext_resource type="Texture2D" uid="uid://hfr067mrjh7t" path="res://assets/chars/guard/back view_0000.png" id="29_jmxl0"]
+[ext_resource type="Script" uid="uid://bn533q83jqxuo" path="res://scenes/guardDoor.gd" id="30_q875d"]
 [ext_resource type="Texture2D" uid="uid://hsrft3drspkw" path="res://assets/chars/guard/back view_0001.png" id="30_sgdes"]
 [ext_resource type="Script" uid="uid://dwusc8a0wwset" path="res://scripts/gdscript/color_rect.gd" id="31_dp0eu"]
 [ext_resource type="Texture2D" uid="uid://cp3qchijh8f7r" path="res://assets/chars/guard/front view_0000.png" id="31_ibep1"]
@@ -43,25 +45,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wboo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_urnot"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xp80"]
-bg_color = Color(0.431373, 0.431373, 0.431373, 0.596078)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 0.490196)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp04v"]
-bg_color = Color(0.83624, 0.120665, 0, 1)
-
-[sub_resource type="Theme" id="Theme_ihbck"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_8xp80")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_sp04v")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgdes"]
+size = Vector2(1076, 460)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2o8j"]
 animations = [{
@@ -99,12 +84,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_307no"]
+[sub_resource type="Gradient" id="Gradient_jmxl0"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rr87q"]
-gradient = SubResource("Gradient_307no")
+gradient = SubResource("Gradient_jmxl0")
 width = 2000
 height = 2000
 fill = 1
@@ -114,14 +99,17 @@ fill_to = Vector2(0.67094, 0.192308)
 [sub_resource type="CircleShape2D" id="CircleShape2D_307no"]
 radius = 99.0051
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmxl0"]
+
 [node name="Main_game" type="Node2D"]
 z_index = 2
+y_sort_enabled = true
 script = ExtResource("1_4e2rb")
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
-z_index = 2
-position = Vector2(-1044, -298)
+y_sort_enabled = false
+position = Vector2(-1360, 532)
 SPEED = 40000.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -146,12 +134,6 @@ energy = 0.48
 shadow_enabled = true
 texture = ExtResource("4_on6n6")
 
-[node name="headlight" type="PointLight2D" parent="player"]
-position = Vector2(-6, -96)
-energy = 0.48
-shadow_enabled = true
-texture = ExtResource("4_on6n6")
-
 [node name="backround" type="TextureRect" parent="."]
 visible = false
 z_index = -24
@@ -172,10 +154,14 @@ visible = false
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0894261, 0.0943732, 0.177501, 1)
 
-[node name="map" parent="." instance=ExtResource("28_dcudo")]
+[node name="map" parent="." node_paths=PackedStringArray("body_to_check", "neg_body", "bodies_to_enable") instance=ExtResource("28_dcudo")]
 z_index = -1
+body_to_check = NodePath("../player")
+neg_body = NodePath("../enemy")
+bodies_to_enable = [NodePath("Node2D/innerRoom/innerWalls"), NodePath("../Sprites/GuardRoom/guard_furniture")]
 
 [node name="Sprites" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(8.39325, -7.5)
 scale = Vector2(0.5, 0.5)
 
@@ -197,6 +183,7 @@ hint_text = "E to pick up"
 shape = SubResource("RectangleShape2D_ikqpi")
 
 [node name="main_painting" type="Node2D" parent="Sprites"]
+z_index = -1
 position = Vector2(-3110.47, -1041)
 script = ExtResource("18_ibnub")
 
@@ -212,6 +199,7 @@ hint_text = "Press E to examine the boy"
 shape = SubResource("RectangleShape2D_ibnub")
 
 [node name="cawfee_lady" type="Node2D" parent="Sprites"]
+z_index = -1
 position = Vector2(3185.08, -921)
 scale = Vector2(2.5, 2.5)
 script = ExtResource("19_5wboo")
@@ -277,95 +265,111 @@ hint_text = "E to open door?"
 shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="HidingSprites" type="Node2D" parent="Sprites"]
+y_sort_enabled = true
 
 [node name="plant" parent="Sprites/HidingSprites" instance=ExtResource("25_rr87q")]
-position = Vector2(-4940.99, -1223)
+position = Vector2(-4946.79, -555)
 
 [node name="plant3" parent="Sprites/HidingSprites" instance=ExtResource("25_rr87q")]
-position = Vector2(2735.97, 1313)
+position = Vector2(2851.21, 1821)
 z_selector = 5
 
+[node name="plant2" parent="Sprites/HidingSprites" instance=ExtResource("25_rr87q")]
+position = Vector2(-2164.79, 479)
+
 [node name="plant4" parent="Sprites/HidingSprites" instance=ExtResource("25_rr87q")]
-position = Vector2(5422.61, -889)
+position = Vector2(5393.21, -207)
 
 [node name="bench" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(-3928.49, -185)
+position = Vector2(-4006.5, 425)
+do_rotate = true
+off_x = -150.0
 
 [node name="bench2" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(-4165.07, 785)
+position = Vector2(-4210.79, 1253)
+do_rotate = true
+off_y = -150.0
 
 [node name="bench3" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(3547.98, -111)
+position = Vector2(3502.26, 357)
 scale = Vector2(-1, 1)
+do_rotate = true
+off_y = -150.0
 
 [node name="bench4" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(3872.78, 787)
+position = Vector2(3827.06, 1255)
 scale = Vector2(-1, 1)
+do_rotate = true
+off_y = -150.0
 
 [node name="hiding_statue" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
-position = Vector2(-2148.09, -1293)
+y_sort_enabled = true
+position = Vector2(-2142.86, -723)
 
 [node name="hiding_statue2" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
-z_index = 4
-position = Vector2(5542.9, 1225)
+y_sort_enabled = true
+position = Vector2(5553.21, 1675)
 z_selector = 5
 
 [node name="hiding_statue3" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
-z_index = 4
-position = Vector2(-6166.02, 1077)
+y_sort_enabled = true
+position = Vector2(-6160.79, 1647)
 scale = Vector2(-1, 1)
 z_selector = 5
 
 [node name="hiding_statue4" parent="Sprites/HidingSprites" instance=ExtResource("27_urnot")]
-z_index = 4
-position = Vector2(-2563.12, 1163)
+y_sort_enabled = true
+position = Vector2(-2557.89, 1733)
 z_selector = 5
 
 [node name="GuardRoom" type="Node2D" parent="Sprites"]
 
-[node name="coffe machine" type="Node2D" parent="Sprites/GuardRoom"]
-position = Vector2(1551.04, -107)
-script = ExtResource("6_wjob3")
-
-[node name="interaction" parent="Sprites/GuardRoom/coffe machine" instance=ExtResource("5_ipu61")]
-position = Vector2(-32.0794, 378)
-scale = Vector2(46.0565, 20)
-hint_text = "E to coffee"
-shape = SubResource("RectangleShape2D_urnot")
-
-[node name="ProgressBar" type="ProgressBar" parent="Sprites/GuardRoom/coffe machine"]
-offset_left = -23.0
-offset_top = -35.0
-offset_right = 23.0
-offset_bottom = -22.0
-theme = SubResource("Theme_ihbck")
-max_value = 5.0
-show_percentage = false
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprites/GuardRoom/coffe machine"]
-position = Vector2(6.17346, -164)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("16_rr87q")
-
 [node name="guard_furniture" type="Node2D" parent="Sprites/GuardRoom"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprites/GuardRoom/guard_furniture"]
-position = Vector2(-778.786, 91)
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprites/GuardRoom/guard_furniture"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/GuardRoom/guard_furniture/StaticBody2D"]
+position = Vector2(-1174.79, 315)
+shape = SubResource("RectangleShape2D_sgdes")
+
+[node name="desk_dark" type="Sprite2D" parent="Sprites/GuardRoom/guard_furniture/StaticBody2D"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-778.786, -37)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("28_sgdes")
 
+[node name="desk" type="Sprite2D" parent="Sprites/GuardRoom/guard_furniture/StaticBody2D"]
+position = Vector2(-778.786, -37)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_sgdes")
+
+[node name="rug" type="Sprite2D" parent="Sprites/GuardRoom/guard_furniture/StaticBody2D"]
+z_index = -1
+scale = Vector2(2, 2)
+texture = ExtResource("27_sgdes")
+
+[node name="coffeeMachine" parent="Sprites/GuardRoom/guard_furniture" instance=ExtResource("27_jmxl0")]
+position = Vector2(1505.21, 167)
+
+[node name="door" type="Sprite2D" parent="Sprites/GuardRoom"]
+position = Vector2(31.2135, 587)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("29_ibep1")
+script = ExtResource("30_q875d")
+
 [node name="Editor light" type="DirectionalLight2D" parent="."]
-visible = false
 editor_only = true
-energy = 0.04
 
 [node name="enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("marker_collection")]
-position = Vector2(1, 34)
+y_sort_enabled = true
+position = Vector2(-120, 176)
 script = ExtResource("28_307no")
 marker_collection = NodePath("../PatrolMarkers")
 speed = 400
 light_offsett = 400
 light_angle_offsett = 180
+killable = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
 position = Vector2(92, -76)
@@ -383,52 +387,67 @@ texture = SubResource("GradientTexture2D_rr87q")
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_307no")
 
-[node name="PatrolMarkers" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(96, 164)
+shape = SubResource("CircleShape2D_jmxl0")
+
+[node name="found_marker" type="Node2D" parent="enemy"]
+z_index = 5
+
+[node name="dot" type="Polygon2D" parent="enemy/found_marker"]
+color = Color(0.619608, 0, 0, 1)
+polygon = PackedVector2Array(38, -468, 77, -468, 77, -518, 32, -518)
+
+[node name="Polygon2D" type="Polygon2D" parent="enemy/found_marker"]
+color = Color(0.753452, 0, 0, 1)
+polygon = PackedVector2Array(66, -562, 29, -564, 0, -737, 101, -724)
+
+[node name="PatrolMarkers" type="Node2D" parent="."]
 
 [node name="inside_1" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(0, 271)
+position = Vector2(0, 96)
 
 [node name="inside_2" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-413, 333)
+position = Vector2(-413, 158)
 
 [node name="inside_3" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(708, 342)
+position = Vector2(708, 167)
 
 [node name="inside_4" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(0, 421)
+position = Vector2(0, 246)
 
 [node name="out_of_door" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(0, 778)
+position = Vector2(0, 603)
 
 [node name="r1_top" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-1629, 767)
+position = Vector2(-1629, 592)
 
 [node name="r1_top2" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-2793, 828)
+position = Vector2(-2803, 605)
 
 [node name="r1_bot2" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-2470, -189)
+position = Vector2(-2473, -195)
 
 [node name="r1_bot" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(-1515, -102)
+position = Vector2(-1410, -264)
 
 [node name="coridor_top" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(4, -95)
+position = Vector2(3, -327)
 
 [node name="r2_top" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(1220, -103)
+position = Vector2(1214, -333)
 
 [node name="r2_bot" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(2160, -188)
+position = Vector2(2160, -363)
 
 [node name="r2_bot2" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(2524, 687)
+position = Vector2(2524, 512)
 
 [node name="r2_top2" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(1584, 772)
+position = Vector2(1584, 597)
 
 [node name="out_of_door2" type="Marker2D" parent="PatrolMarkers"]
-position = Vector2(0, 778)
+position = Vector2(0, 603)
 
 [node name="fade container" type="CanvasLayer" parent="."]
 
@@ -444,9 +463,11 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("31_dp0eu")
 
 [node name="game_light" type="DirectionalLight2D" parent="."]
+visible = false
 color = Color(0.0997823, 0.131661, 0.228114, 1)
 energy = 0.02
 
+[connection signal="swaproom" from="map" to="Sprites/GuardRoom/door" method="_on_map_swaproom"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="Sprites/main_painting" method="_on_tissues_tissue_got"]
 [connection signal="dialogStart" from="Sprites/main_painting" to="UI" method="_on_dialog_start"]
@@ -456,6 +477,6 @@ energy = 0.02
 [connection signal="allowTears" from="Sprites/boyfriend" to="Sprites/main_painting" method="_on_boyfriend_allow_tears"]
 [connection signal="dialogStart" from="Sprites/boyfriend" to="UI" method="_on_dialog_start"]
 [connection signal="fadeBlack" from="Sprites/roof_portal" to="fade container/FadeModulate" method="_on_fade_req"]
-[connection signal="CoffeIsDone" from="Sprites/GuardRoom/coffe machine" to="UI" method="_on_coffe_machine_coffe_is_done"]
-[connection signal="CoffeIsDone" from="Sprites/GuardRoom/coffe machine" to="Sprites/cawfee_lady" method="_on_coffe_machine_coffe_is_done"]
+[connection signal="CoffeIsDone" from="Sprites/GuardRoom/guard_furniture/coffeeMachine" to="UI" method="_on_coffe_machine_coffe_is_done"]
+[connection signal="endGame" from="enemy" to="." method="_on_enemy_end_game"]
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]

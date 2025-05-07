@@ -30,9 +30,9 @@ func _process(delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
 		active_areas.sort_custom(_sort_by_player_distance)
 		label.text = active_areas[0].hint_text
-		container.global_position = player[0].global_position
-		container.global_position.y -= 240
-		container.global_position.x -= label.size.x / 2
+		container.global_position = player[0].getTextLoc()
+		container.global_position.y -= 200
+		container.global_position.x -= label.size.x / 2 +200
 		container.show()
 		label.show()
 	else:

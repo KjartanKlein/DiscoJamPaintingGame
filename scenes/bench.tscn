@@ -1,39 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://ttveyi5yut2c"]
+[gd_scene load_steps=7 format=3 uid="uid://ttveyi5yut2c"]
 
 [ext_resource type="Script" uid="uid://dfnctdd3ox3d7" path="res://scenes/hiding_statue.gd" id="1_e3ljv"]
 [ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="2_icepk"]
 [ext_resource type="Material" uid="uid://bt7nvnvhrquaq" path="res://scenes/disapear_on_shaded.tres" id="3_2j385"]
+[ext_resource type="Material" uid="uid://b67xenmvvavjl" path="res://scenes/shaded_only.tres" id="4_icepk"]
 [ext_resource type="Texture2D" uid="uid://cko1l08hmebo4" path="res://assets/sprite/bench.png" id="4_ykdud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nme6k"]
 
 [node name="bench" type="StaticBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_e3ljv")
 
-[node name="interaction" parent="." instance=ExtResource("2_icepk")]
-z_index = 2
-y_sort_enabled = true
-position = Vector2(100, 150)
-scale = Vector2(100, 50)
-hint_text = "E to Hide"
-shape = SubResource("RectangleShape2D_nme6k")
-
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-z_index = 1
+y_sort_enabled = true
 material = ExtResource("3_2j385")
-position = Vector2(86, 242)
+position = Vector2(24, -334)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_ykdud")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-85.9232, 793.528)
+z_index = -1
+material = ExtResource("4_icepk")
+position = Vector2(-146, 207)
 rotation = 0.00866302
 scale = Vector2(0.780411, 0.908853)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(990.66, -232.418, 967.552, -236.647, 948.232, -246.406, 943.261, -485.141, 247.5, -479.965, 246.807, -421.643, 233.229, -243.288, 214.142, -229.942, 187.268, -226.441, 157.797, -226.222, 129.397, -246.917, 124.559, -472.449, -607.113, -470.307, -597.36, -265.718, -623.968, -235.811, -667.5, -232.186, -703.622, -256.125, -722.499, -476.05, -767.445, -485.619, -782.943, -497.607, -792.557, -561.355, -805.636, -587.666, -805.099, -661.392, -785.152, -716.557, -707.264, -871.182, -631.372, -969.676, -568.887, -999.85, -498.48, -1006.98, -461.278, -1002.85, -444.576, -998.574, -373.077, -1024.41, -333.411, -1030.21, -253.991, -1033, -187.229, -1020.29, -123.029, -1007.57, -59.1404, -1025.65, 15.1878, -1025.1, 79.3319, -1017.88, 130.774, -999.553, 194.651, -1018.73, 298.306, -1032.71, 354.662, -1035.33, 440.644, -1022.76, 504.899, -1004.54, 573.88, -1025.96, 621.234, -1031.81, 695.506, -1036.76, 755.773, -1032.81, 800.731, -1022.14, 817.443, -1016.76, 841.656, -1030.15, 915.906, -1037.3, 1029.98, -1034.85, 1105.69, -1024.41, 1182.62, -1019.48, 1207.22, -994.356, 1228.36, -931.795, 1230.1, -885.594, 1211.73, -801.832, 1195.41, -767.601, 1198.63, -702.705, 1191.87, -611.328, 1184.72, -557.358, 1164.43, -536.301, 1129.8, -539.344, 1119.45, -549.17, 1103.12, -517.139, 1086.66, -497.211, 1049.53, -493.634, 1055.32, -427.657, 1043.61, -318.637, 1044.3, -250.422, 1016.24, -237.009)
 
+[node name="interaction" parent="." instance=ExtResource("2_icepk")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(40.1, -371.9)
+scale = Vector2(100, 50)
+hint_text = "E to Hide"
+shape = SubResource("RectangleShape2D_nme6k")
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 editor_only = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-587, 567, -710, 188, -564, -86, -399, -138, 115, -132, 651, -140, 877, -89, 848, 279, 739, 577)
+position = Vector2(-59.9, -521.9)
+polygon = PackedVector2Array(-535.1, 480.9, -538.1, 193.9, 700.9, 207.9, 700.9, 472.9)

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var my_sprite:AnimatedSprite2D = $sprite
 @onready var textbox = $textbox
 @onready var light = $PointLight2D
-
+@onready var headlight =$"headlight"
 
 func _ready() -> void:
 	textbox.visible = false
@@ -21,11 +21,16 @@ func go_hide(inn_z_index: int):
 	z_index = inn_z_index
 	print(z_index)
 	light.visible = false
+	headlight.visible =false
 	InteractionManager.untregister_closest()
 	lock_movement()
 	hiding = true
-	hiding_timer = 2.0
-	
+	hiding_timer = 0.5
+	my_sprite.play("hiding")
+
+
+func getTextLoc()->Vector2:
+	return textbox.global_position	
 func lock_movement():
 	movement_lock = true
 	
@@ -42,8 +47,11 @@ func _process(delta: float) -> void:
 			print("unlocking")
 			hiding = false
 			light.visible = true
+			headlight.visible = true
 			z_index = stored_z_index
 			movement_lock = false
+			rotation = 0.0
+			hiding_timer = 0.5
 		textbox.visible=true
 		timer = boy_timer
 	

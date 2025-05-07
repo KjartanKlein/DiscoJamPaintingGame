@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-@export var marker_collection : Node
+@export var marker_collection : Node2D
 @export var speed : int = 300
 @export var light_offsett : int = 90
 @export var light_angle_offsett : int = 90
-
+@export var killable : bool = false
 var positions : Array
 var current_pos :int = 0
 var max_pos: int
@@ -14,11 +14,16 @@ var idle = false
 @onready var light : PointLight2D = $"PointLight2D" 
 @onready var area : Area2D = $"Area2D"
 @onready var sprite : AnimatedSprite2D = $"AnimatedSprite2D"
+@onready var marker : Node2D = $"found_marker"
+
 enum states { 
 	Patorl,
 	Hunt,
 	ReturnToPatrol,
 }
+var distance_to_marker_thresh = 100
+
+signal endGame()
 
 func _ready() -> void:
 	#positions = get_tree().get_nodes_in_group(marker_collection)
@@ -28,6 +33,7 @@ func _ready() -> void:
 	current_pos = 0
 	light.global_position.x = global_position.x+light_offsett
 	get_next_pos()
+	marker.visible = false
 	pass
 
 var timer = 0.0
@@ -38,7 +44,7 @@ func _process(delta: float) -> void:
 			idle = false
 			timer = 0.0
 		return
-	if global_position.distance_to(selected_position.position) < 10:
+	if global_position.distance_to(selected_position.position) < distance_to_marker_thresh:
 		get_next_pos()
 	velocity = speed*direction
 	if abs(direction.x) > abs(direction.y):
@@ -63,19 +69,33 @@ func _process(delta: float) -> void:
 	move_and_slide()
 		
 func get_next_pos():
+	if game_over:
+		print("game over")
+		trigger_game_over()
+		return
 	current_pos +=1
 	if current_pos >= max_pos:
 		current_pos = 0
 	idle = true
-	timer = 5.0
+	timer = 1.0
 	selected_position = positions[current_pos]
 	print("selected position ",selected_position.name," ", current_pos, " set to ", selected_position.global_position)
 	direction =  to_local(selected_position.position).normalized()
 	
 	pass	
 
-
+var game_over = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && killable:
+		marker.visible = true
+		game_over = true;
 		print("game over i found you")
+		body.lock_movement()
+		positions.clear()
+		direction = to_local(body.global_position).normalized()
+		selected_position.global_position = body.global_position
 	pass # Replace with function body.
+
+func trigger_game_over():
+	print("Changing scenes...")
+	endGame.emit()

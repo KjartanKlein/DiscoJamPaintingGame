@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdd5t6cvnlgxo"]
+
+[ext_resource type="Script" uid="uid://gmuhedcy630b" path="res://scripts/gdscript/coffee_get.gd" id="1_eynoa"]
+[ext_resource type="Texture2D" uid="uid://cy4qqh05abp0h" path="res://assets/sprite/coffee.png" id="2_1pd0i"]
+[ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="3_5hn1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nme6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nm2d"]
+size = Vector2(559, 464)
+
+[node name="coffeeMachine" type="StaticBody2D"]
+script = ExtResource("1_eynoa")
+
+[node name="sprite2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-41.25, -273.75)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_1pd0i")
+
+[node name="interaction" parent="." instance=ExtResource("3_5hn1d")]
+visible = false
+z_index = 2
+y_sort_enabled = true
+position = Vector2(-78, 339)
+scale = Vector2(46.5482, 44.1409)
+hint_text = "E to Hide"
+shape = SubResource("RectangleShape2D_nme6k")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(-41.25, -273.75)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_1pd0i")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-71.25, 259.25)
+editor_only = true
+color = Color(0.938493, 1, 0.831642, 1)
+energy = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-55.5, 42)
+shape = SubResource("RectangleShape2D_3nm2d")
