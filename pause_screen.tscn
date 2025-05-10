@@ -3,7 +3,14 @@
 [ext_resource type="Script" uid="uid://b0q067uo62hs" path="res://pause_screen.gd" id="1_rk3l4"]
 [ext_resource type="Theme" uid="uid://dtd7d0qqqnr0g" path="res://main_m_buttons.tres" id="2_un6tb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbgr5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk3l4"]
+content_margin_left = 25.0
+content_margin_top = 25.0
+content_margin_right = 25.0
+content_margin_bottom = 25.0
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.52549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un6tb"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
@@ -13,13 +20,6 @@ corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk3l4"]
-content_margin_left = 25.0
-content_margin_top = 25.0
-content_margin_right = 25.0
-content_margin_bottom = 25.0
-bg_color = Color(0.176471, 0.176471, 0.176471, 0.52549)
 
 [node name="pause_screen" type="CanvasLayer"]
 process_mode = 3
@@ -33,32 +33,6 @@ offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.227451, 0.227451, 0.227451, 0.415686)
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.119
-anchor_top = 0.192
-anchor_right = 0.326
-anchor_bottom = 0.807
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rbgr5")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
-layout_mode = 2
-text = "Art:
-Em
-
-Music and Sound:
-Louise
-
-Programming:
-Kjar
-Aeofi
-
-Writing:
-Danny"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -110,6 +84,36 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("2_un6tb")
 text = "Exit"
+
+[node name="credits" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.023
+anchor_top = 0.185
+anchor_right = 0.259
+anchor_bottom = 0.688
+offset_left = -0.160004
+offset_top = -71.8
+offset_right = -0.279999
+offset_bottom = 106.96
+theme_override_styles/panel = SubResource("StyleBoxFlat_un6tb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="credits"]
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+text = "Artist: 
+Emily Conway
+
+Music and Sound: 
+Louise Barret
+
+Programmers: 
+Aeofi
+Kjartan Klein
+						
+Writer: 
+Conway Sutton"
 
 [connection signal="pressed" from="PanelContainer2/buttons/Continue" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer2/buttons/credits" to="." method="_on_credits_pressed"]

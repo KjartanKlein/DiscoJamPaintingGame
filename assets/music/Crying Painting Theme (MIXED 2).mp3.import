@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4bhbysgwnkwc"
+path="res://.godot/imported/Crying Painting Theme (MIXED 2).mp3-b64605ee63df221cc2e71405d8e230b6.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Crying Painting Theme (MIXED 2).mp3"
+dest_files=["res://.godot/imported/Crying Painting Theme (MIXED 2).mp3-b64605ee63df221cc2e71405d8e230b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

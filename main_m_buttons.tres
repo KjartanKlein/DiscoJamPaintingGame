@@ -8,4 +8,5 @@ border_width_right = 1
 border_width_bottom = 1
 
 [resource]
+default_font_size = 32
 Button/styles/normal = SubResource("StyleBoxFlat_x20nl")

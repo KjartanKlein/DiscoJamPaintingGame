@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4f60e2kv25y1"
+path="res://.godot/imported/Segway _ BG ambience.mp3-93b80143cf340d1a06fcfa69bdc69e91.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Segway _ BG ambience.mp3"
+dest_files=["res://.godot/imported/Segway _ BG ambience.mp3-93b80143cf340d1a06fcfa69bdc69e91.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

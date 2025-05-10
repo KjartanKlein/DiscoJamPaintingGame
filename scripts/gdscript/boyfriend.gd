@@ -12,14 +12,14 @@ func _ready() -> void:
 	
 func start_dialog():
 	if not dialog_done:
-		dialogStart.emit("rooftop_boyfriend")
+		dialogStart.emit("on_roof")
 		dialog_done = true
 		allowTears.emit()
 		return
 	if ui.crybox.visible:
-		dialogStart.emit("has_crybox")
-		ui.changeItem("crybox",false)
-		ui.changeItem("anime", true)
+		dialogStart.emit("give_tissues_2")
+#		ui.changeItem("crybox",false)
+#		ui.changeItem("anime", true)
 		return
 	print("boyfriend has no dialog")
 	#TODO add something when interaction fails

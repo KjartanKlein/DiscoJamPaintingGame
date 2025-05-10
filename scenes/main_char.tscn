@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1aaa5eih6m57"]
+[gd_scene load_steps=15 format=3 uid="uid://1aaa5eih6m57"]
 
 [ext_resource type="Script" uid="uid://bs4eydl6r0odj" path="res://scripts/gdscript/character_movement.gd" id="1_a0gy4"]
 [ext_resource type="Texture2D" uid="uid://cn17he76suf3q" path="res://assets/chars/Walk Cycle 1_0000.png" id="2_a0gy4"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bs5fhjqv13jr6" path="res://assets/chars/BK_1.png" id="6_7yebw"]
 [ext_resource type="Texture2D" uid="uid://dhcy4yd8n1fqo" path="res://assets/chars/BK_2.png" id="7_ybqel"]
 [ext_resource type="Texture2D" uid="uid://dklsx4xqlraoj" path="res://scenes/spotlight.tres" id="10_0cwr1"]
+[ext_resource type="AudioStream" uid="uid://dxbs5m0086u8p" path="res://assets/sfx/SFX_Footstep-03.wav" id="11_xeop0"]
+[ext_resource type="AudioStream" uid="uid://bghtn8tl3y7ka" path="res://assets/sfx/ENEMY HIT.wav" id="12_xeop0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0cwr1"]
 animations = [{
@@ -122,3 +124,14 @@ position = Vector2(-6, -96)
 energy = 0.48
 shadow_enabled = true
 texture = ExtResource("10_0cwr1")
+
+[node name="walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_xeop0")
+volume_db = -10.0
+pitch_scale = 1.39
+
+[node name="hide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_xeop0")
+volume_db = -16.852
+pitch_scale = 2.18
+attenuation = 3.36358

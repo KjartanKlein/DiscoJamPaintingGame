@@ -1,19 +1,24 @@
-[gd_scene load_steps=48 format=3 uid="uid://cq8uyx8mlb50b"]
+[gd_scene load_steps=59 format=3 uid="uid://cq8uyx8mlb50b"]
 
 [ext_resource type="Script" uid="uid://mfwsvasgrbi2" path="res://scenes/MainGame.cs" id="1_4e2rb"]
 [ext_resource type="PackedScene" uid="uid://1aaa5eih6m57" path="res://scenes/main_char.tscn" id="1_s3esy"]
 [ext_resource type="Texture2D" uid="uid://bp2gai5eo5ugt" path="res://assets/placeholders/Background/Gray.png" id="2_72e8q"]
-[ext_resource type="Script" uid="uid://my3eb6deom44" path="res://scripts/gdscript/camera_2d.gd" id="3_urnot"]
 [ext_resource type="Texture2D" uid="uid://dklsx4xqlraoj" path="res://scenes/spotlight.tres" id="4_on6n6"]
+[ext_resource type="AudioStream" uid="uid://dua5ld5lx5k07" path="res://assets/music/STEALTH (MIXED).mp3" id="4_oojmo"]
 [ext_resource type="PackedScene" uid="uid://do2diqnlwnw36" path="res://scenes/interaction.tscn" id="5_ipu61"]
+[ext_resource type="AudioStream" uid="uid://c4bhbysgwnkwc" path="res://assets/music/Crying Painting Theme (MIXED 2).mp3" id="6_5noht"]
 [ext_resource type="Material" uid="uid://bt7nvnvhrquaq" path="res://scenes/disapear_on_shaded.tres" id="9_x3ega"]
+[ext_resource type="Texture2D" uid="uid://d4dtgvmmc7uek" path="res://assets/painting/mikey_painting.png" id="11_wpxwh"]
+[ext_resource type="Texture2D" uid="uid://cf8cjj8swocp0" path="res://assets/painting/building_painting.png" id="12_jk70c"]
 [ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="12_sgdes"]
-[ext_resource type="AudioStream" uid="uid://cbktokbnffifc" path="res://assets/music/Crying Boys Theme (DRAFT 1).mp3" id="14_8xp80"]
+[ext_resource type="Texture2D" uid="uid://dabnngmm5iq1q" path="res://assets/painting/frame.png" id="12_t42xu"]
+[ext_resource type="Texture2D" uid="uid://cwm5t0uqts740" path="res://assets/painting/pony.png" id="13_t42xu"]
+[ext_resource type="AudioStream" uid="uid://b4mjlrih0cphk" path="res://assets/sfx/2.wav" id="14_g2o8j"]
 [ext_resource type="PackedScene" uid="uid://c2bvu0xtdr23g" path="res://scenes/ui.tscn" id="16_ihbck"]
+[ext_resource type="Texture2D" uid="uid://s4gp5vvu7sj4" path="res://assets/painting/sad_boy.png" id="17_5noht"]
 [ext_resource type="Script" uid="uid://dkc7vwb3yl6y8" path="res://scripts/gdscript/tissues.gd" id="17_ikqpi"]
 [ext_resource type="Script" uid="uid://cliq5cptj7o5w" path="res://scenes/main_painting.gd" id="18_ibnub"]
 [ext_resource type="Script" uid="uid://cjljq37gomrk7" path="res://scripts/gdscript/cawfee_lady.gd" id="19_5wboo"]
-[ext_resource type="Texture2D" uid="uid://brqawoqydtwds" path="res://assets/sprite/boy_painting_1.png" id="19_ibnub"]
 [ext_resource type="Texture2D" uid="uid://brq57rhf3w40q" path="res://assets/sprite/lady_pick_me_up.png" id="20_5wboo"]
 [ext_resource type="Script" uid="uid://780u5wcs5ah0" path="res://scripts/gdscript/thedoor.gd" id="21_6de02"]
 [ext_resource type="Texture2D" uid="uid://brri6a8c84rex" path="res://assets/sprite/other_boy.png" id="23_6de02"]
@@ -38,6 +43,22 @@
 [ext_resource type="Texture2D" uid="uid://yjrpxmwpelgk" path="res://assets/chars/guard/side view_0000.png" id="33_dvo3n"]
 [ext_resource type="Texture2D" uid="uid://fu2rxcdxnbxu" path="res://assets/chars/guard/side view_0001.png" id="34_1vioj"]
 [ext_resource type="PackedScene" uid="uid://jksbpfu0c4va" path="res://pause_screen.tscn" id="34_6vdpn"]
+[ext_resource type="AudioStream" uid="uid://ctj3hdp4nvcuq" path="res://assets/sfx/Segway.mp3" id="38_dvo3n"]
+[ext_resource type="AudioStream" uid="uid://bk1o7wq1kxbmh" path="res://assets/sfx/Walking 1.mp3" id="39_1vioj"]
+[ext_resource type="AudioStream" uid="uid://cwjnr53xr8p2s" path="res://assets/sfx/ENEMY SOUND 3.wav" id="42_5noht"]
+[ext_resource type="Script" uid="uid://ddy5s0vy26fmj" path="res://scenes/camera_2d.gd" id="46_wpxwh"]
+
+[sub_resource type="Gradient" id="Gradient_5noht"]
+offsets = PackedFloat32Array(0, 0.99734)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4v0b0"]
+gradient = SubResource("Gradient_5noht")
+width = 720
+height = 720
+fill = 1
+fill_from = Vector2(0.478632, 0.478632)
+fill_to = Vector2(0.709402, 0.260684)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqpi"]
 
@@ -109,21 +130,13 @@ script = ExtResource("1_4e2rb")
 [node name="player" parent="." groups=["player"] instance=ExtResource("1_s3esy")]
 unique_name_in_owner = true
 y_sort_enabled = false
-position = Vector2(-1360, 532)
+position = Vector2(-3229, 192)
 SPEED = 40000.0
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-unique_name_in_owner = true
-z_index = 40
-zoom = Vector2(0.4, 0.4)
-position_smoothing_enabled = true
-position_smoothing_speed = 2.0
-script = ExtResource("3_urnot")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player"]
+[node name="Main_theme" type="AudioStreamPlayer2D" parent="player"]
 process_mode = 3
-stream = ExtResource("14_8xp80")
-volume_db = -29.633
+stream = ExtResource("4_oojmo")
+volume_db = -20.0
 autoplay = true
 parameters/looping = true
 
@@ -133,6 +146,10 @@ color = Color(1, 1, 0.286275, 1)
 energy = 0.48
 shadow_enabled = true
 texture = ExtResource("4_on6n6")
+
+[node name="Roof_theme" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("6_5noht")
+volume_db = -20.0
 
 [node name="backround" type="TextureRect" parent="."]
 visible = false
@@ -160,13 +177,74 @@ body_to_check = NodePath("../player")
 neg_body = NodePath("../enemy")
 bodies_to_enable = [NodePath("Node2D/innerRoom/innerWalls"), NodePath("../Sprites/GuardRoom/guard_furniture")]
 
+[node name="PointLight2D" type="PointLight2D" parent="map"]
+position = Vector2(-2040, -693)
+texture = SubResource("GradientTexture2D_4v0b0")
+
+[node name="PointLight2D2" type="PointLight2D" parent="map"]
+position = Vector2(-1529, -662)
+texture = SubResource("GradientTexture2D_4v0b0")
+
+[node name="PointLight2D3" type="PointLight2D" parent="map"]
+position = Vector2(1306, -632)
+texture = SubResource("GradientTexture2D_4v0b0")
+
+[node name="PointLight2D4" type="PointLight2D" parent="map"]
+position = Vector2(1842, -642)
+texture = SubResource("GradientTexture2D_4v0b0")
+
+[node name="mikey" type="Sprite2D" parent="map"]
+material = ExtResource("9_x3ega")
+position = Vector2(-514, -572)
+texture = ExtResource("11_wpxwh")
+
+[node name="frame" type="Sprite2D" parent="map/mikey"]
+texture = ExtResource("12_t42xu")
+
+[node name="building" type="Sprite2D" parent="map"]
+material = ExtResource("9_x3ega")
+position = Vector2(34, -581)
+texture = ExtResource("12_jk70c")
+
+[node name="frame" type="Sprite2D" parent="map/building"]
+texture = ExtResource("12_t42xu")
+
+[node name="pony" type="Sprite2D" parent="map"]
+material = ExtResource("9_x3ega")
+position = Vector2(551, -572)
+texture = ExtResource("13_t42xu")
+
+[node name="frame" type="Sprite2D" parent="map/pony"]
+texture = ExtResource("12_t42xu")
+
+[node name="mikey2" type="Sprite2D" parent="map"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-514, -572)
+texture = ExtResource("11_wpxwh")
+
+[node name="building2" type="Sprite2D" parent="map"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(34, -581)
+texture = ExtResource("12_jk70c")
+
+[node name="pony2" type="Sprite2D" parent="map"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(551, -572)
+texture = ExtResource("13_t42xu")
+
+[node name="cam_marker" type="Marker2D" parent="map"]
+position = Vector2(13633, -244)
+
 [node name="Sprites" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(8.39325, -7.5)
 scale = Vector2(0.5, 0.5)
 
 [node name="Tissues" type="Node2D" parent="Sprites"]
-position = Vector2(-3270.87, 667)
+position = Vector2(-2976.79, 641)
 script = ExtResource("17_ikqpi")
 
 [node name="sprite" type="Sprite2D" parent="Sprites/Tissues"]
@@ -182,21 +260,61 @@ scale = Vector2(19.5719, 18.5105)
 hint_text = "E to pick up"
 shape = SubResource("RectangleShape2D_ikqpi")
 
+[node name="ding" type="AudioStreamPlayer2D" parent="Sprites/Tissues"]
+stream = ExtResource("14_g2o8j")
+pitch_scale = 3.99
+
 [node name="main_painting" type="Node2D" parent="Sprites"]
 z_index = -1
 position = Vector2(-3110.47, -1041)
 script = ExtResource("18_ibnub")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprites/main_painting"]
-position = Vector2(-521.288, -262)
-scale = Vector2(2, 2)
-texture = ExtResource("19_ibnub")
+position = Vector2(-1064.32, -380)
+texture = ExtResource("17_5noht")
 
 [node name="interaction" parent="Sprites/main_painting" instance=ExtResource("5_ipu61")]
-position = Vector2(-557.377, 654)
-scale = Vector2(-70, -20)
+position = Vector2(-660.317, 486)
+scale = Vector2(-80, -40)
 hint_text = "Press E to examine the boy"
 shape = SubResource("RectangleShape2D_ibnub")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/main_painting"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(147.683, -412)
+texture = ExtResource("17_5noht")
+
+[node name="boohootimer" type="Timer" parent="Sprites/main_painting"]
+wait_time = 2.0
+autostart = true
+
+[node name="textbox" type="Polygon2D" parent="Sprites/main_painting"]
+visible = false
+z_index = 5
+position = Vector2(-872.317, -238)
+scale = Vector2(10, 10)
+polygon = PackedVector2Array(5, -23, 13, -31, 46.6, -31, 46.4, -49, 1, -48, 1, -32, 6, -32)
+
+[node name="text" type="RichTextLabel" parent="Sprites/main_painting/textbox"]
+clip_contents = false
+offset_left = 4.0
+offset_top = -46.0
+offset_right = 62.0
+offset_bottom = -20.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_colors/table_even_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[shake]BooHoo"
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="cawfee_lady" type="Node2D" parent="Sprites"]
 z_index = -1
@@ -215,10 +333,40 @@ scale = Vector2(-45, -15)
 hint_text = "Press E to talk to the lady"
 shape = SubResource("RectangleShape2D_5wboo")
 
+[node name="sleepytimer" type="Timer" parent="Sprites/cawfee_lady"]
+wait_time = 2.0
+autostart = true
+
+[node name="textbox" type="Polygon2D" parent="Sprites/cawfee_lady"]
+z_index = 5
+position = Vector2(209.653, -96.8)
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(5, -23, 13, -31, 46.6, -31, 46.4, -49, 1, -48, 1, -32, 6, -32)
+
+[node name="text" type="RichTextLabel" parent="Sprites/cawfee_lady/textbox"]
+clip_contents = false
+offset_left = 4.0
+offset_top = -46.0
+offset_right = 62.0
+offset_bottom = -20.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_colors/table_even_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "ZZZzzz"
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
 [node name="thedoor" type="Node2D" parent="Sprites" node_paths=PackedStringArray("location")]
 position = Vector2(6531.35, 111)
 script = ExtResource("21_6de02")
-unlocked = true
 location = NodePath("../roof_portal/interaction")
 
 [node name="door" type="Sprite2D" parent="Sprites/thedoor"]
@@ -250,7 +398,7 @@ hint_text = "E to Talk to him"
 shape = SubResource("RectangleShape2D_5wboo")
 
 [node name="roof_portal" type="Polygon2D" parent="Sprites" node_paths=PackedStringArray("location")]
-position = Vector2(19535.5, -2379)
+position = Vector2(19535.2, -2379)
 color = Color(0.113725, 0.647059, 0, 0)
 polygon = PackedVector2Array(4819.9, 2528, 4751.74, 2648, 4781.81, 2738, 4831.93, 2696, 4849.98, 2638)
 script = ExtResource("25_wdxbp")
@@ -281,23 +429,23 @@ position = Vector2(-2164.79, 479)
 position = Vector2(5393.21, -207)
 
 [node name="bench" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(-4006.5, 425)
+position = Vector2(-4362.5, 715)
 do_rotate = true
 off_x = -150.0
 
 [node name="bench2" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(-4210.79, 1253)
+position = Vector2(-4566.79, 1543)
 do_rotate = true
 off_y = -150.0
 
 [node name="bench3" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(3502.26, 357)
+position = Vector2(3637.21, 613)
 scale = Vector2(-1, 1)
 do_rotate = true
 off_y = -150.0
 
 [node name="bench4" parent="Sprites/HidingSprites" instance=ExtResource("26_dp0eu")]
-position = Vector2(3827.06, 1255)
+position = Vector2(3962.01, 1511)
 scale = Vector2(-1, 1)
 do_rotate = true
 off_y = -150.0
@@ -369,7 +517,6 @@ marker_collection = NodePath("../PatrolMarkers")
 speed = 400
 light_offsett = 400
 light_angle_offsett = 180
-killable = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
 position = Vector2(92, -76)
@@ -401,6 +548,20 @@ polygon = PackedVector2Array(38, -468, 77, -468, 77, -518, 32, -518)
 [node name="Polygon2D" type="Polygon2D" parent="enemy/found_marker"]
 color = Color(0.753452, 0, 0, 1)
 polygon = PackedVector2Array(66, -562, 29, -564, 0, -737, 101, -724)
+
+[node name="segway noises" type="AudioStreamPlayer2D" parent="enemy"]
+stream = ExtResource("38_dvo3n")
+volume_db = -23.109
+pitch_scale = 1.65
+max_distance = 2619.0
+attenuation = 1.51572
+
+[node name="thuds" type="AudioStreamPlayer2D" parent="enemy"]
+stream = ExtResource("39_1vioj")
+volume_db = -20.438
+
+[node name="onFind" type="AudioStreamPlayer2D" parent="enemy"]
+stream = ExtResource("42_5noht")
 
 [node name="PatrolMarkers" type="Node2D" parent="."]
 
@@ -467,16 +628,38 @@ visible = false
 color = Color(0.0997823, 0.131661, 0.228114, 1)
 energy = 0.02
 
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("marker")]
+unique_name_in_owner = true
+z_index = 40
+position = Vector2(2975, 226)
+zoom = Vector2(0.4, 0.4)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("46_wpxwh")
+marker = NodePath("../map/cam_marker")
+
+[connection signal="LockMovement" from="UI" to="player" method="_on_ui_lock_movement"]
 [connection signal="swaproom" from="map" to="Sprites/GuardRoom/door" method="_on_map_swaproom"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="UI" method="_on_tissues_tissue_got"]
 [connection signal="tissueGot" from="Sprites/Tissues" to="Sprites/main_painting" method="_on_tissues_tissue_got"]
 [connection signal="dialogStart" from="Sprites/main_painting" to="UI" method="_on_dialog_start"]
+[connection signal="guard_start" from="Sprites/main_painting" to="enemy" method="start_patrol"]
+[connection signal="victory" from="Sprites/main_painting" to="UI" method="_on_main_painting_victory"]
+[connection signal="timeout" from="Sprites/main_painting/boohootimer" to="Sprites/main_painting" method="_on_boohootimer_timeout"]
 [connection signal="dialogStart" from="Sprites/cawfee_lady" to="UI" method="_on_dialog_start"]
 [connection signal="hasKeyCode" from="Sprites/cawfee_lady" to="Sprites/thedoor" method="_on_cawfee_lady_has_key_code"]
+[connection signal="timeout" from="Sprites/cawfee_lady/sleepytimer" to="Sprites/cawfee_lady" method="_on_sleepytimer_timeout"]
+[connection signal="dialog_start" from="Sprites/thedoor" to="UI" method="_on_dialog_start"]
+[connection signal="fadeBlack" from="Sprites/thedoor" to="player" method="swap_themes"]
 [connection signal="fadeBlack" from="Sprites/thedoor" to="fade container/FadeModulate" method="_on_fade_req"]
+[connection signal="fadeBlack" from="Sprites/thedoor" to="Camera2D" method="go_to_marker"]
 [connection signal="allowTears" from="Sprites/boyfriend" to="Sprites/main_painting" method="_on_boyfriend_allow_tears"]
 [connection signal="dialogStart" from="Sprites/boyfriend" to="UI" method="_on_dialog_start"]
+[connection signal="fadeBlack" from="Sprites/roof_portal" to="player" method="swap_themes"]
 [connection signal="fadeBlack" from="Sprites/roof_portal" to="fade container/FadeModulate" method="_on_fade_req"]
+[connection signal="fadeBlack" from="Sprites/roof_portal" to="Camera2D" method="follow_player"]
 [connection signal="CoffeIsDone" from="Sprites/GuardRoom/guard_furniture/coffeeMachine" to="UI" method="_on_coffe_machine_coffe_is_done"]
+[connection signal="dialogStart" from="Sprites/GuardRoom/guard_furniture/coffeeMachine" to="UI" method="_on_dialog_start"]
 [connection signal="endGame" from="enemy" to="." method="_on_enemy_end_game"]
 [connection signal="body_entered" from="enemy/Area2D" to="enemy" method="_on_area_2d_body_entered"]
+[connection signal="dialog_start" from="fade container/FadeModulate" to="UI" method="_on_dialog_start"]

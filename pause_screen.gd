@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-@onready var creds = $PanelContainer
+@onready var creds = $credits
 var deadtimer = 0.0
 var paused_req = false
 var is_paused = false

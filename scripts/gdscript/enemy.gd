@@ -16,6 +16,9 @@ var idle = false
 @onready var sprite : AnimatedSprite2D = $"AnimatedSprite2D"
 @onready var marker : Node2D = $"found_marker"
 
+@onready var thuds : AudioStreamPlayer2D = $"thuds"
+@onready var seg: AudioStreamPlayer2D = $"segway noises"
+
 enum states { 
 	Patorl,
 	Hunt,
@@ -35,15 +38,23 @@ func _ready() -> void:
 	get_next_pos()
 	marker.visible = false
 	pass
+func start_patrol():
+	print("starting patrol")
+	started = true
 
 var timer = 0.0
+var started = false
 func _process(delta: float) -> void:
+	if !started:
+		return
 	if idle:
 		timer -=delta
 		if timer <= 0:
 			idle = false
 			timer = 0.0
 		return
+	if !seg.playing && visible:
+		seg.play()
 	if global_position.distance_to(selected_position.position) < distance_to_marker_thresh:
 		get_next_pos()
 	velocity = speed*direction
@@ -77,7 +88,9 @@ func get_next_pos():
 	if current_pos >= max_pos:
 		current_pos = 0
 	idle = true
-	timer = 1.0
+	if visible:
+		thuds.play()
+	timer = 5.0
 	selected_position = positions[current_pos]
 	print("selected position ",selected_position.name," ", current_pos, " set to ", selected_position.global_position)
 	direction =  to_local(selected_position.position).normalized()
@@ -86,7 +99,10 @@ func get_next_pos():
 
 var game_over = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "player" && killable:
+	if visible && body.name == "player" && killable:
+		if body.hiding:
+			return
+		$"onFind".play()
 		marker.visible = true
 		game_over = true;
 		print("game over i found you")

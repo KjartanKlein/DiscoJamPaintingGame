@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkhfik3oxh8q5"
+path="res://.godot/imported/Class Room Theme NEW.mp3-7ad4c1363a3693431c5c7192b30de6f2.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Class Room Theme NEW.mp3"
+dest_files=["res://.godot/imported/Class Room Theme NEW.mp3-7ad4c1363a3693431c5c7192b30de6f2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

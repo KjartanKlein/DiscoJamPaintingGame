@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dffu4kqjtvapl"
+path="res://.godot/imported/LOADING SOUND.wav-66a92f46c98c65b348f63e10a464b34e.sample"
+
+[deps]
+
+source_file="res://assets/sfx/LOADING SOUND.wav"
+dest_files=["res://.godot/imported/LOADING SOUND.wav-66a92f46c98c65b348f63e10a464b34e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

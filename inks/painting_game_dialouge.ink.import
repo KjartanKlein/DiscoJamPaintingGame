@@ -1,0 +1,16 @@
+[remap]
+
+importer="ink"
+type="Resource"
+uid="uid://cwphjw3obls37"
+path="res://.godot/imported/painting_game_dialouge.ink-ff38f4e014504a70f24515959b8cf526.res"
+
+[deps]
+
+source_file="res://inks/painting_game_dialouge.ink"
+dest_files=["res://.godot/imported/painting_game_dialouge.ink-ff38f4e014504a70f24515959b8cf526.res"]
+
+[params]
+
+is_main_file=true
+compress=true

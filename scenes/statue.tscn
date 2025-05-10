@@ -39,7 +39,6 @@ texture = ExtResource("4_hxsj5")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(-71.25, 259.25)
 editor_only = true
-color = Color(0.938493, 1, 0.831642, 1)
 energy = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

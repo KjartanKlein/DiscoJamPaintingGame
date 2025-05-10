@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2bvu0xtdr23g"]
+[gd_scene load_steps=14 format=3 uid="uid://c2bvu0xtdr23g"]
 
 [ext_resource type="Script" uid="uid://dph15r4ghmcah" path="res://scripts/gdscript/ui.gd" id="1_yev5y"]
 [ext_resource type="Texture2D" uid="uid://cuadabt74acf0" path="res://assets/sprite/cawfee.png" id="2_8dubc"]
 [ext_resource type="Texture2D" uid="uid://crsh3pelhvhkb" path="res://assets/sprite/tissues.png" id="3_p7vwb"]
+[ext_resource type="Resource" uid="uid://cwphjw3obls37" path="res://inks/painting_game_dialouge.ink" id="3_vdcm2"]
 [ext_resource type="Texture2D" uid="uid://cuvl2v1mp0bs2" path="res://assets/sprite/used_tissuessm.png" id="4_8dubc"]
 [ext_resource type="Script" uid="uid://6fu8l80dtoup" path="res://scripts/CSharp/ink_runner.cs" id="4_gdt2y"]
 [ext_resource type="Theme" uid="uid://dqhx1hnyv7h83" path="res://button.tres" id="4_p7vwb"]
-[ext_resource type="Resource" uid="uid://dlnpry4jaokj0" path="res://inks/Painting_boy.ink" id="5_wm3ai"]
+[ext_resource type="AudioStream" uid="uid://cjax2ddg2rme8" path="res://assets/sfx/Talking sound 1.mp3" id="5_cgfq5"]
+[ext_resource type="Script" uid="uid://dg2cp05qypv1k" path="res://scenes/talking_noises.gd" id="5_ktti3"]
+[ext_resource type="Texture2D" uid="uid://s4gp5vvu7sj4" path="res://assets/painting/sad_boy.png" id="7_vdcm2"]
+[ext_resource type="AudioStream" uid="uid://oqw408ruwdjm" path="res://assets/sfx/1.wav" id="10_7dvkv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlq6p"]
 content_margin_left = 85.0
@@ -40,7 +44,7 @@ script = ExtResource("1_yev5y")
 
 [node name="dialog_manager" type="CanvasLayer" parent="."]
 script = ExtResource("4_gdt2y")
-story = ExtResource("5_wm3ai")
+story = ExtResource("3_vdcm2")
 buttonTheme = ExtResource("4_p7vwb")
 
 [node name="text_box" type="PanelContainer" parent="dialog_manager"]
@@ -64,6 +68,12 @@ theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "Hello world"
+
+[node name="talking_noises" type="AudioStreamPlayer" parent="dialog_manager/text_box"]
+stream = ExtResource("5_cgfq5")
+volume_db = -20.0
+pitch_scale = 2.6
+script = ExtResource("5_ktti3")
 
 [node name="name_box" type="PanelContainer" parent="dialog_manager"]
 z_index = 21
@@ -90,14 +100,10 @@ vertical_alignment = 1
 
 [node name="button_container" type="HBoxContainer" parent="dialog_manager"]
 anchors_preset = -1
-anchor_left = 0.198
+anchor_left = 0.319
 anchor_top = 0.61
-anchor_right = 0.899
+anchor_right = 0.836
 anchor_bottom = 0.68
-offset_left = -1.09601
-offset_top = -0.279999
-offset_right = 0.351929
-offset_bottom = 4.35999
 
 [node name="Button" type="Button" parent="dialog_manager/button_container"]
 custom_minimum_size = Vector2(200, 50)
@@ -115,6 +121,26 @@ text = "test2"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "test3"
+
+[node name="sad_boy" type="Sprite2D" parent="dialog_manager"]
+visible = false
+position = Vector2(313, 368)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_vdcm2")
+
+[node name="bad_boy" type="Sprite2D" parent="dialog_manager"]
+visible = false
+position = Vector2(313, 368)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_vdcm2")
+flip_h = true
+
+[node name="coffee_lady" type="Sprite2D" parent="dialog_manager"]
+visible = false
+position = Vector2(720.55, 337.975)
+scale = Vector2(1.8416, 0.63494)
+texture = ExtResource("7_vdcm2")
+flip_h = true
 
 [node name="inventory" type="VBoxContainer" parent="."]
 anchors_preset = -1
@@ -167,4 +193,8 @@ rotation = -3.14159
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_8dubc")
 
+[node name="ItemGet" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7dvkv")
+
 [connection signal="DialogFinished" from="dialog_manager" to="." method="_on_dialog_manager_dialog_finished"]
+[connection signal="SetCharVisible" from="dialog_manager" to="." method="changeChar"]

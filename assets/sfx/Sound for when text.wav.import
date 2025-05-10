@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw5k2y6lyry7y"
+path="res://.godot/imported/Sound for when text.wav-028d7b24ad41dd1710e040480bf2038b.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Sound for when text.wav"
+dest_files=["res://.godot/imported/Sound for when text.wav-028d7b24ad41dd1710e040480bf2038b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

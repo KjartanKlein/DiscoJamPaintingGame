@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjax2ddg2rme8"
+path="res://.godot/imported/Talking sound 1.mp3-715f90eba61e7f29085a0879e817e610.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Talking sound 1.mp3"
+dest_files=["res://.godot/imported/Talking sound 1.mp3-715f90eba61e7f29085a0879e817e610.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

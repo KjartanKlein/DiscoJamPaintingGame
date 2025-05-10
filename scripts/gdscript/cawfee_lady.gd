@@ -16,10 +16,16 @@ func start_dialog():
 		dialog_done = true
 		return
 	if ui.coffee.visible:
-		dialogStart.emit("has_coffee")
-		ui.changeItem("coffee",false)
+		dialogStart.emit("give_coffee")
 		hasKeyCode.emit()
 		return
 	print("coffee lady no dialog")
+	$textbox.visible
+	$sleepytimer.start()
 	#TODO add something when interaction fails
 	
+
+
+func _on_sleepytimer_timeout() -> void:
+	$textbox.visible = not 	$textbox.visible
+	pass # Replace with function body.

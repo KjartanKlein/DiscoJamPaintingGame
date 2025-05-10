@@ -6,15 +6,31 @@ extends CharacterBody2D
 @onready var textbox = $textbox
 @onready var light = $PointLight2D
 @onready var headlight =$"headlight"
+@onready var walking_noises : AudioStreamPlayer2D = $"walking"
+@onready var Main_theme :AudioStreamPlayer2D = $Main_theme
+@onready var Roof_theme :AudioStreamPlayer2D = $Roof_theme
+@onready var hide_sound :AudioStreamPlayer2D = $hide
+var old_vol = 0.0
+
+func swap_themes():
+	if Main_theme.playing:
+		Main_theme.stop()
+		Roof_theme.play()
+	else:
+		Main_theme.play()
+		Roof_theme.stop()
+		
+
 
 func _ready() -> void:
 	textbox.visible = false
 	stored_z_index = z_index
-
+	old_vol = walking_noises.volume_linear
 var timer = 0.0
 var movement_lock = false
 var hiding = false
 var stored_z_index = 0
+
 
 func go_hide(inn_z_index: int):
 	##we want to go behind the object, and turn off the light
@@ -27,6 +43,8 @@ func go_hide(inn_z_index: int):
 	hiding = true
 	hiding_timer = 0.5
 	my_sprite.play("hiding")
+	hide_sound.play()
+	
 
 
 func getTextLoc()->Vector2:
@@ -108,4 +126,13 @@ func _process(delta: float) -> void:
 		#my_sprite.stop()
 		my_sprite.play("idle")
 	velocity= Vector2(direction_x, direction_y)*SPEED*delta		
+	if (velocity.x != 0 || velocity.x != 0) and !walking_noises.playing:
+		walking_noises.pitch_scale = 1.0 + randf_range(-0.2,0.2)
+		walking_noises.volume_linear = old_vol + randf_range(-0.1,0.1)
+		walking_noises.play()
 	move_and_slide()
+
+
+func _on_ui_lock_movement(lock: bool) -> void:
+	movement_lock = lock
+	

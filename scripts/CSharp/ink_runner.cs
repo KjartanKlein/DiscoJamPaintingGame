@@ -208,18 +208,53 @@ public partial class ink_runner : CanvasLayer
     }
 
     public void addItem(string item_name){
+        GD.Print("adding item", item_name);
         switch (item_name){
         case "tissues":
+                GD.Print("tissues ", item_name);
                 story.StoreVariable("item_tissues", true);
             break;
         case "crybox":
+                GD.Print("crybox " , item_name);
                 story.StoreVariable("item_crybox", true);
             break;
         case "coffee":
+                GD.Print("coffee ", item_name);
                 story.StoreVariable("item_coffee", true);
             break;
         case "anime":
+                GD.Print("anime ", item_name);
                 story.StoreVariable("item_anime", true);
+            break;
+        default:
+            GD.Print("bad item -> ", item_name);
+            break;
+        }
+    }
+
+
+    public void setItem(string item_name, bool cond){
+        return;
+        GD.Print("setting item", item_name);
+        switch (item_name){
+        case "tissues":
+                GD.Print("tissues ", item_name);
+                story.StoreVariable("item_tissues", cond);
+            break;
+        case "crybox":
+                GD.Print("crybox " , item_name);
+                story.StoreVariable("item_crybox", cond);
+            break;
+        case "coffee":
+                GD.Print("coffee ", item_name);
+                story.StoreVariable("item_coffee", cond);
+            break;
+        case "anime":
+                GD.Print("anime ", item_name);
+                story.StoreVariable("item_anime", cond);
+            break;
+        default:
+            GD.Print("bad item -> ", item_name);
             break;
         }
     }

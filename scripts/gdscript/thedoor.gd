@@ -7,6 +7,8 @@ extends Node2D
 @export var player_offsett = 200
 signal fadeBlack
 
+signal dialog_start(name :String)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interaction_area.interact  = Callable(self, "check_lock")
@@ -16,6 +18,7 @@ func check_lock()-> void:
 		fadeBlack.emit()
 		player.global_position = location.global_position + Vector2(player_offsett,0)
 	else:
+		dialog_start.emit("locked_door")
 		print("I am locked")
 
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dua5ld5lx5k07"
+path="res://.godot/imported/STEALTH (MIXED).mp3-bc963feddad2f5fd0bfee26cc5de089d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/STEALTH (MIXED).mp3"
+dest_files=["res://.godot/imported/STEALTH (MIXED).mp3-bc963feddad2f5fd0bfee26cc5de089d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

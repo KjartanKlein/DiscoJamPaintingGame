@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dk85jyvljait6"
+path="res://.godot/imported/THUD 5.wav-4396161242a46dcb2a014c3cf5aa2993.sample"
+
+[deps]
+
+source_file="res://assets/sfx/THUD 5.wav"
+dest_files=["res://.godot/imported/THUD 5.wav-4396161242a46dcb2a014c3cf5aa2993.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbbb6wpfs2gfa"]
+[gd_scene load_steps=12 format=3 uid="uid://bbbb6wpfs2gfa"]
 
 [ext_resource type="Script" uid="uid://b2eaq1ik7ak53" path="res://scenes/map.gd" id="1_2klcf"]
 [ext_resource type="Texture2D" uid="uid://c6dgfxwl1qqu" path="res://assets/maps/map_1.png" id="1_4xfga"]
 [ext_resource type="Texture2D" uid="uid://bqey1inkg0n4h" path="res://assets/maps/map_2.png" id="2_paxxb"]
 [ext_resource type="Texture2D" uid="uid://ckke8s0o3e8sp" path="res://assets/maps/map_2_rail.png" id="3_0cso3"]
 [ext_resource type="Texture2D" uid="uid://dgqgdji7klxm5" path="res://assets/maps/map_2_no_rail.png" id="4_2klcf"]
+[ext_resource type="AudioStream" uid="uid://1lp5b5hieb5u" path="res://assets/sfx/Segway_sc.mp3" id="4_nakos"]
+[ext_resource type="Texture2D" uid="uid://i84l1uqpc3re" path="res://assets/maps/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" id="6_2lpho"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gldc4"]
-polygon = PackedVector2Array(4704, 338, 5960, 344, 5702, -190, 4919, -188, 4919, -210, 4854, -158, 4810, -98, 4701, 52, 4703, 166, 4700, 340, 4114, 301, 4682, -833, 5963, -388, 6118, 463, 5849, 888, 4647, 631, 4690, 350, 4704, 338)
+polygon = PackedVector2Array(4704, 338, 5960, 344, 5702, -190, 4919, -188, 4919, -210, 4854, -158, 4810, -98, 4701, 52, 4703, 166, 4700, 340, 4114, 301, 4175.6, -1098.4, 6523.2, -994.4, 6523.2, 542.4, 5849, 888, 4647, 631, 4690, 350, 4704, 338)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4xfga"]
 polygon = PackedVector2Array(-1266, 265, -1358, 430, -424, 430, -405, 369, 500, 367, 547, 426, 1276, 426, 1153, 261, 1465, 253, 1373, 140, 1646, 140, 1679, -84, 1342, -74, 1271, 22, 1203, -51, 1212, -371, 948, -376, 873, -440, 359, -445, 368, -404, -346, -402, -342, -442, -1016, -433, -1080, -393, -1228, -383, -1478, -145, -1464, 261, -1294, 263, -1447, 529, -1579, 480, -1798, -17, -1199, -1186, -155, -1356, 1428, -1275, 2797, -350, 2716, 923, 1450, 1404, 311, 1352, -984, 1005, -1295, 783, -1392, 460, -1294, 263)
@@ -36,12 +38,24 @@ position = Vector2(110, 142)
 scale = Vector2(2.5, 2.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="outside"]
+position = Vector2(2, 0)
 polygon = PackedVector2Array(4754, 283, 5882, 302, 5690, -165, 4908, -167, 4854, -16.8, 4818.4, -19.2, 4819, 64, 4713, 283, 4413, 287, 4518, -422, 5852, -452, 6013, 550, 4544, 545, 4713, 283)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="outside"]
 occluder = SubResource("OccluderPolygon2D_gldc4")
 
-[node name="roof" type="Sprite2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="outside"]
+position = Vector2(4491.6, -69.2)
+stream = ExtResource("4_nakos")
+volume_db = -23.394
+pitch_scale = 4.0
+autoplay = true
+stream_paused = true
+attenuation = 1.7411
+parameters/looping = true
+
+[node name="roof_bad" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(13085, 33)
 texture = ExtResource("4_2klcf")
 
@@ -55,7 +69,7 @@ texture = ExtResource("1_4xfga")
 scale = Vector2(2.5, 2.5)
 
 [node name="outerwalls" type="CollisionPolygon2D" parent="Node2D/outer_walls"]
-polygon = PackedVector2Array(-400, 376, -424, 448, -1368, 440, -1272, 272, -1472, 264, -1360, 120, -1560, 120, -1552, -24, -1344, -8, -1304, 56, -1288, 56, -1232, -40, -1072, -40, -1016, -128, -336, -136, -336, -80, 368, -96, 368, -144, 880, -144, 936, -64, 1200, -56, 1272, 16, 1336, -72, 1632, -72, 1648, 24, 1648, 136, 1552, 144, 1368, 144, 1448, 248, 1456, 264, 1160, 264, 1280, 424, 536, 432, 504, 376, -392, 376, -416, 448, 544, 784, 1592, 544, 1784, -24, 1512, -504, 896, -704, 0, -672, -1080, -648, -1448, -632, -1784, -328, -1944, 360, -1760, 728, -1400, 1040, -712, 1072, -376, 864, -424, 512, -424, 464, -392, 376)
+polygon = PackedVector2Array(-400, 376, -424, 448, -1368, 440, -1272, 272, -1472, 264, -1360, 120, -1344, -8, -1304, 56, -1288, 56, -1232, -40, -1072, -40, -1016, -128, -336, -136, -336, -80, 368, -96, 368, -144, 880, -144, 936, -64, 1200, -56, 1272, 16, 1374.4, 133.2, 1448, 248, 1456, 264, 1160, 264, 1280, 424, 536, 432, 504, 376, -392, 376, -416, 448, 544, 784, 1592, 544, 1784, -24, 1512, -504, 896, -704, 0, -672, -1080, -648, -1448, -632, -1784, -328, -1944, 360, -1760, 728, -1400, 1040, -712, 1072, -376, 864, -424, 512, -424, 464, -392, 376)
 
 [node name="Lightecluder" type="LightOccluder2D" parent="Node2D/outer_walls"]
 occluder = SubResource("OccluderPolygon2D_4xfga")
@@ -84,6 +98,16 @@ polygon = PackedVector2Array(-71.6, 223.2, -72.8, 241.6, -383.6, 240.8, -359.2, 
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Node2D/innerRoom/inside the room"]
 occluder = SubResource("OccluderPolygon2D_2lpho")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -5
+offset_left = 11044.0
+offset_top = -2357.0
+offset_right = 13604.0
+offset_bottom = -330.0
+scale = Vector2(2, 2)
+texture = ExtResource("6_2lpho")
+expand_mode = 1
 
 [connection signal="swaproom" from="." to="Node2D/innerRoom/innerWalls" method="_on_map_swaproom"]
 [connection signal="swaproom" from="." to="Node2D/innerRoom/inside the room" method="_on_map_swaproom"]

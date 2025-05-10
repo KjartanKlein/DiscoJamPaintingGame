@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://k7gb36kmpsaj"]
+[gd_scene load_steps=7 format=3 uid="uid://k7gb36kmpsaj"]
 
 [ext_resource type="Script" uid="uid://v8hig5ol5gob" path="res://game_over.gd" id="1_wqhvx"]
 [ext_resource type="Theme" uid="uid://dtd7d0qqqnr0g" path="res://main_m_buttons.tres" id="2_tbwuq"]
+[ext_resource type="AudioStream" uid="uid://b4mjlrih0cphk" path="res://assets/sfx/2.wav" id="3_tbwuq"]
+[ext_resource type="AudioStream" uid="uid://u1bs8mshvt6o" path="res://assets/music/GameOver2.mp3" id="4_racf3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbgr5"]
 content_margin_left = 10.0
@@ -111,4 +113,16 @@ layout_mode = 2
 theme = ExtResource("2_tbwuq")
 text = "Main Menu"
 
+[node name="onClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tbwuq")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="end_theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_racf3")
+volume_db = -20.0
+autoplay = true
+
 [connection signal="pressed" from="PanelContainer2/buttons/Continue" to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
